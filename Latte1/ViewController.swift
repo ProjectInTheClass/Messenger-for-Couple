@@ -15,7 +15,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ACell", for: indexPath) as! ACellViewCell
-        cell.oneimage.image = UIImage(named: albums[indexPath.item])
+        cell.image.image = UIImage(named: albums[indexPath.item].photo[0])
         cell.label.text = albums[indexPath.item].name
         
         

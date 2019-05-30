@@ -12,6 +12,7 @@ private let reuseIdentifier = "Cell"
 
 class ACellViewCell: UICollectionViewCell {
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var image: UIImageView!
 }
 
 class TCellScroll: UIScrollView {
