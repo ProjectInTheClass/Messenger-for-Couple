@@ -16,7 +16,7 @@
 		0ED3D5FD2282AB2400EB4616 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3D5FB2282AB2400EB4616 /* LaunchScreen.storyboard */; };
 		0ED3D6082282AB2400EB4616 /* Latte1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D6072282AB2400EB4616 /* Latte1Tests.swift */; };
 		0ED3D6132282AB2400EB4616 /* Latte1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D6122282AB2400EB4616 /* Latte1UITests.swift */; };
-		AF25C9E8229FDC7800340ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF25C9E7229FDC7800340ACA /* Main.storyboard */; };
+		AF25C9EB229FDE3000340ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF25C9E9229FDE3000340ACA /* Main.storyboard */; };
 		AFF275D22297E1AB00696394 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D12297E1AB00696394 /* Chats.storyboard */; };
 		AFF275D42297E1B600696394 /* Album.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D32297E1B600696394 /* Album.storyboard */; };
 		AFF275D62297E1BF00696394 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D52297E1BF00696394 /* Calendar.storyboard */; };
@@ -56,7 +56,7 @@
 		0ED3D60E2282AB2400EB4616 /* Latte1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Latte1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED3D6122282AB2400EB4616 /* Latte1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latte1UITests.swift; sourceTree = "<group>"; };
 		0ED3D6142282AB2400EB4616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AF25C9E7229FDC7800340ACA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = SOURCE_ROOT; };
+		AF25C9EA229FDE3000340ACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AFF275D12297E1AB00696394 /* Chats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
 		AFF275D32297E1B600696394 /* Album.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Album.storyboard; sourceTree = "<group>"; };
 		AFF275D52297E1BF00696394 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			children = (
 				0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */,
 				0ED3D5F42282AB2100EB4616 /* ViewController.swift */,
-				AF25C9E7229FDC7800340ACA /* Main.storyboard */,
+				AF25C9E9229FDE3000340ACA /* Main.storyboard */,
 				AFF275D12297E1AB00696394 /* Chats.storyboard */,
 				AFF275D32297E1B600696394 /* Album.storyboard */,
 				AFF275D52297E1BF00696394 /* Calendar.storyboard */,
@@ -252,7 +252,7 @@
 			files = (
 				AFF275D62297E1BF00696394 /* Calendar.storyboard in Resources */,
 				0ED3D5FD2282AB2400EB4616 /* LaunchScreen.storyboard in Resources */,
-				AF25C9E8229FDC7800340ACA /* Main.storyboard in Resources */,
+				AF25C9EB229FDE3000340ACA /* Main.storyboard in Resources */,
 				AFF275D82297E1C600696394 /* Days.storyboard in Resources */,
 				0ED3D5FA2282AB2400EB4616 /* Assets.xcassets in Resources */,
 				AFF275D22297E1AB00696394 /* Chats.storyboard in Resources */,
@@ -327,6 +327,14 @@
 				0ED3D5FC2282AB2400EB4616 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		AF25C9E9229FDE3000340ACA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF25C9EA229FDE3000340ACA /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
