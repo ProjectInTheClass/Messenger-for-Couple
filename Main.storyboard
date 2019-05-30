@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fz3-ab-Iug">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Chats-->
+        <scene sceneID="nbe-sa-hYS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chats" id="5rI-OL-VPG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="kEY-Vj-9bh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C0S-p8-x6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1555" y="434"/>
+        </scene>
+        <!--Album-->
+        <scene sceneID="GHN-rG-hSM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Album" id="QOt-oA-E4B" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="DEy-v3-UbY"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AxS-tr-OFl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1370" y="434"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="f3y-xY-iZg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" id="APL-GU-zpZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="uXN-Cu-LPf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbF-Pp-0ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1170" y="434"/>
+        </scene>
+        <!--Days-->
+        <scene sceneID="zfu-HL-Ukt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Days" id="mHP-TU-Ml4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="RvL-L2-Agg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KH0-Rm-trD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-994" y="434"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="6bv-hX-xC0">
+            <objects>
+                <tabBarController id="fz3-ab-Iug" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KnN-Gn-hqt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="0.58478718460000001" blue="0.25430139390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="5rI-OL-VPG" kind="relationship" relationship="viewControllers" id="lsT-Oi-8nl"/>
+                        <segue destination="QOt-oA-E4B" kind="relationship" relationship="viewControllers" id="uKD-Kn-s8R"/>
+                        <segue destination="APL-GU-zpZ" kind="relationship" relationship="viewControllers" id="7NC-hD-oAy"/>
+                        <segue destination="mHP-TU-Ml4" kind="relationship" relationship="viewControllers" id="P3J-5b-Afw"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HWO-2q-bor" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1275" y="-255"/>
+        </scene>
+    </scenes>
+</document>
