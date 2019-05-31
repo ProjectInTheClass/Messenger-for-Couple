@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z09-Nh-u9l">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calendar-->
+        <scene sceneID="Hjq-s2-yVB">
+            <objects>
+                <viewController id="Z09-Nh-u9l" userLabel="Calendar" customClass="ViewController" customModule="Latte1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4X4-9N-W53">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Lem-VD-BLl"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Days" image="like" id="VDV-FE-unO" userLabel="Calendar"/>
+                    <navigationItem key="navigationItem" id="SWH-xM-r4u"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PwC-iT-uvu" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1276" y="654"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="like" width="21.333333969116211" height="21.333333969116211"/>
+    </resources>
+</document>
