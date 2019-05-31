@@ -10,7 +10,7 @@ import Foundation
 
 struct Album {
     let name : String
-    var photo : [String]
+    var photo : [Any]
 }
 
 var favorite = Album(name:"favorite", photo: ["image1.jpeg", "image2.jpeg"])
