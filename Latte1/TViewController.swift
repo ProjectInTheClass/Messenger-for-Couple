@@ -63,6 +63,7 @@ class TViewController: UIViewController {
                 }
                 else {
                     albums.remove(at: index)
+                    break
                 }
                 //selectedPhotosName = albums[index].name
             }
