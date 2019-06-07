@@ -7,20 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E02A8772284103600B26611 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E02A8762284103600B26611 /* CollectionViewController.swift */; };
 		0E02A87B228474B100B26611 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E02A87A228474B100B26611 /* DataCenter.swift */; };
 		0E02A87F2284970B00B26611 /* TViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E02A87E2284970B00B26611 /* TViewController.swift */; };
+		0E08E2B922AA56BA000EADCB /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2B822AA56BA000EADCB /* AViewController.swift */; };
+		0E08E2BB22AA57A6000EADCB /* DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2BA22AA57A6000EADCB /* DViewController.swift */; };
 		0ED3D5F32282AB2100EB4616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */; };
 		0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F42282AB2100EB4616 /* ViewController.swift */; };
 		0ED3D5FA2282AB2400EB4616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F92282AB2400EB4616 /* Assets.xcassets */; };
 		0ED3D5FD2282AB2400EB4616 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3D5FB2282AB2400EB4616 /* LaunchScreen.storyboard */; };
 		0ED3D6082282AB2400EB4616 /* Latte1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D6072282AB2400EB4616 /* Latte1Tests.swift */; };
 		0ED3D6132282AB2400EB4616 /* Latte1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D6122282AB2400EB4616 /* Latte1UITests.swift */; };
+		51B5A7E122A10D24004611E3 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5A7E022A10D24004611E3 /* CalendarViewController.swift */; };
+		8E96184852F5D2D0764B0285 /* Pods_Latte1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7907C5A3C349E94EDF8900 /* Pods_Latte1UITests.framework */; };
 		AF25C9EB229FDE3000340ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF25C9E9229FDE3000340ACA /* Main.storyboard */; };
 		AFF275D22297E1AB00696394 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D12297E1AB00696394 /* Chats.storyboard */; };
 		AFF275D42297E1B600696394 /* Album.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D32297E1B600696394 /* Album.storyboard */; };
 		AFF275D62297E1BF00696394 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D52297E1BF00696394 /* Calendar.storyboard */; };
 		AFF275D82297E1C600696394 /* Days.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D72297E1C600696394 /* Days.storyboard */; };
+		C3A6E5F25A11FEC245446FDC /* Pods_Latte1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBAFD77ADBE4564BDD0ACDFB /* Pods_Latte1Tests.framework */; };
+		CDE2646609457CD1CF6BE86E /* Pods_Latte1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00495CD891B9ED3DE36A3018 /* Pods_Latte1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E02A8762284103600B26611 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		00495CD891B9ED3DE36A3018 /* Pods_Latte1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Latte1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E02A87A228474B100B26611 /* DataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
 		0E02A87E2284970B00B26611 /* TViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TViewController.swift; sourceTree = "<group>"; };
+		0E08E2B822AA56BA000EADCB /* AViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
+		0E08E2BA22AA57A6000EADCB /* DViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DViewController.swift; sourceTree = "<group>"; };
 		0ED3D5EF2282AB2100EB4616 /* Latte1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Latte1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ED3D5F42282AB2100EB4616 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,11 +63,20 @@
 		0ED3D60E2282AB2400EB4616 /* Latte1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Latte1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED3D6122282AB2400EB4616 /* Latte1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latte1UITests.swift; sourceTree = "<group>"; };
 		0ED3D6142282AB2400EB4616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		105CAF61606BF9D902D64EFA /* Pods-Latte1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1Tests.release.xcconfig"; path = "Target Support Files/Pods-Latte1Tests/Pods-Latte1Tests.release.xcconfig"; sourceTree = "<group>"; };
+		2853CEB2828AA7B8FF8C706E /* Pods-Latte1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1.release.xcconfig"; path = "Target Support Files/Pods-Latte1/Pods-Latte1.release.xcconfig"; sourceTree = "<group>"; };
+		4220FFA60A274E4278286F8D /* Pods-Latte1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1.debug.xcconfig"; path = "Target Support Files/Pods-Latte1/Pods-Latte1.debug.xcconfig"; sourceTree = "<group>"; };
+		45163B3F5B080AA409A554E5 /* Pods-Latte1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1UITests.debug.xcconfig"; path = "Target Support Files/Pods-Latte1UITests/Pods-Latte1UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		51B5A7E022A10D24004611E3 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		5C7907C5A3C349E94EDF8900 /* Pods_Latte1UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Latte1UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FA210C6DF6BDF2A37A5D59B /* Pods-Latte1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1UITests.release.xcconfig"; path = "Target Support Files/Pods-Latte1UITests/Pods-Latte1UITests.release.xcconfig"; sourceTree = "<group>"; };
+		7381869CDF62D5204DADC344 /* Pods-Latte1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1Tests.debug.xcconfig"; path = "Target Support Files/Pods-Latte1Tests/Pods-Latte1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF25C9EA229FDE3000340ACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AFF275D12297E1AB00696394 /* Chats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
 		AFF275D32297E1B600696394 /* Album.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Album.storyboard; sourceTree = "<group>"; };
 		AFF275D52297E1BF00696394 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		AFF275D72297E1C600696394 /* Days.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Days.storyboard; sourceTree = "<group>"; };
+		DBAFD77ADBE4564BDD0ACDFB /* Pods_Latte1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Latte1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE2646609457CD1CF6BE86E /* Pods_Latte1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3A6E5F25A11FEC245446FDC /* Pods_Latte1Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +100,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E96184852F5D2D0764B0285 /* Pods_Latte1UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00A877E4B01E44C2F8A2A01F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00495CD891B9ED3DE36A3018 /* Pods_Latte1.framework */,
+				DBAFD77ADBE4564BDD0ACDFB /* Pods_Latte1Tests.framework */,
+				5C7907C5A3C349E94EDF8900 /* Pods_Latte1UITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0ED3D5E62282AB2100EB4616 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +124,8 @@
 				0ED3D6062282AB2400EB4616 /* Latte1Tests */,
 				0ED3D6112282AB2400EB4616 /* Latte1UITests */,
 				0ED3D5F02282AB2100EB4616 /* Products */,
+				B30B348E21BEFA86C6538259 /* Pods */,
+				00A877E4B01E44C2F8A2A01F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,11 +150,13 @@
 				AFF275D52297E1BF00696394 /* Calendar.storyboard */,
 				AFF275D72297E1C600696394 /* Days.storyboard */,
 				0E02A87E2284970B00B26611 /* TViewController.swift */,
-				0E02A8762284103600B26611 /* CollectionViewController.swift */,
+				0E08E2B822AA56BA000EADCB /* AViewController.swift */,
+				0E08E2BA22AA57A6000EADCB /* DViewController.swift */,
 				0ED3D5F92282AB2400EB4616 /* Assets.xcassets */,
 				0E02A87A228474B100B26611 /* DataCenter.swift */,
 				0ED3D5FE2282AB2400EB4616 /* Info.plist */,
 				0ED3D5FB2282AB2400EB4616 /* LaunchScreen.storyboard */,
+				51B5A7E022A10D24004611E3 /* CalendarViewController.swift */,
 			);
 			path = Latte1;
 			sourceTree = "<group>";
@@ -146,6 +179,19 @@
 			path = Latte1UITests;
 			sourceTree = "<group>";
 		};
+		B30B348E21BEFA86C6538259 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4220FFA60A274E4278286F8D /* Pods-Latte1.debug.xcconfig */,
+				2853CEB2828AA7B8FF8C706E /* Pods-Latte1.release.xcconfig */,
+				7381869CDF62D5204DADC344 /* Pods-Latte1Tests.debug.xcconfig */,
+				105CAF61606BF9D902D64EFA /* Pods-Latte1Tests.release.xcconfig */,
+				45163B3F5B080AA409A554E5 /* Pods-Latte1UITests.debug.xcconfig */,
+				6FA210C6DF6BDF2A37A5D59B /* Pods-Latte1UITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0ED3D6172282AB2400EB4616 /* Build configuration list for PBXNativeTarget "Latte1" */;
 			buildPhases = (
+				EFFE8663C086DA57D235AD24 /* [CP] Check Pods Manifest.lock */,
 				0ED3D5EB2282AB2100EB4616 /* Sources */,
 				0ED3D5EC2282AB2100EB4616 /* Frameworks */,
 				0ED3D5ED2282AB2100EB4616 /* Resources */,
+				546E7290F5D7D5ECC38CFF76 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,6 +218,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0ED3D61A2282AB2400EB4616 /* Build configuration list for PBXNativeTarget "Latte1Tests" */;
 			buildPhases = (
+				1EA6BDB572A9CF7BA9BE4F4E /* [CP] Check Pods Manifest.lock */,
 				0ED3D5FF2282AB2400EB4616 /* Sources */,
 				0ED3D6002282AB2400EB4616 /* Frameworks */,
 				0ED3D6012282AB2400EB4616 /* Resources */,
@@ -188,6 +237,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0ED3D61D2282AB2400EB4616 /* Build configuration list for PBXNativeTarget "Latte1UITests" */;
 			buildPhases = (
+				EFC81CE0C00512ACBFB5FFCC /* [CP] Check Pods Manifest.lock */,
 				0ED3D60A2282AB2400EB4616 /* Sources */,
 				0ED3D60B2282AB2400EB4616 /* Frameworks */,
 				0ED3D60C2282AB2400EB4616 /* Resources */,
@@ -276,15 +326,108 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1EA6BDB572A9CF7BA9BE4F4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Latte1Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		546E7290F5D7D5ECC38CFF76 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Latte1/Pods-Latte1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Latte1/Pods-Latte1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFC81CE0C00512ACBFB5FFCC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Latte1UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFFE8663C086DA57D235AD24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Latte1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0ED3D5EB2282AB2100EB4616 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E02A8772284103600B26611 /* CollectionViewController.swift in Sources */,
+				51B5A7E122A10D24004611E3 /* CalendarViewController.swift in Sources */,
 				0E02A87F2284970B00B26611 /* TViewController.swift in Sources */,
 				0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */,
 				0E02A87B228474B100B26611 /* DataCenter.swift in Sources */,
+				0E08E2BB22AA57A6000EADCB /* DViewController.swift in Sources */,
+				0E08E2B922AA56BA000EADCB /* AViewController.swift in Sources */,
 				0ED3D5F32282AB2100EB4616 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,6 +601,7 @@
 		};
 		0ED3D6182282AB2400EB4616 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4220FFA60A274E4278286F8D /* Pods-Latte1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -476,6 +620,7 @@
 		};
 		0ED3D6192282AB2400EB4616 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2853CEB2828AA7B8FF8C706E /* Pods-Latte1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -494,6 +639,7 @@
 		};
 		0ED3D61B2282AB2400EB4616 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7381869CDF62D5204DADC344 /* Pods-Latte1Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -514,6 +660,7 @@
 		};
 		0ED3D61C2282AB2400EB4616 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 105CAF61606BF9D902D64EFA /* Pods-Latte1Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -534,6 +681,7 @@
 		};
 		0ED3D61E2282AB2400EB4616 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45163B3F5B080AA409A554E5 /* Pods-Latte1UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -553,6 +701,7 @@
 		};
 		0ED3D61F2282AB2400EB4616 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FA210C6DF6BDF2A37A5D59B /* Pods-Latte1UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

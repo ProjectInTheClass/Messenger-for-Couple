@@ -33,7 +33,7 @@
         <scene sceneID="f3y-xY-iZg">
             <objects>
                 <viewControllerPlaceholder storyboardName="Calendar" id="APL-GU-zpZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="uXN-Cu-LPf"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" id="uXN-Cu-LPf"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbF-Pp-0ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
