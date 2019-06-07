@@ -19,9 +19,10 @@ class TCellScroll: UIScrollView {
     @IBOutlet weak var image: UIImageView!
 }
 
-class CollectionViewController: UICollectionViewController {
+
+class AViewController: UICollectionViewController {
     
-    var albums : [Album] = [favorite]
+    var albums : [Album] = [A20190531]
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -52,19 +53,19 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ACell", for: indexPath) as! ACellViewCell
         
-        cell.label.text = albums[indexPath.item].name
-        if type(of:albums[indexPath.item].photo[0]) == String.self {
+        cell.label.text = String(albums[indexPath.item].year) + "/" + String(albums[indexPath.item].month) + "/" + String(albums[indexPath.item].day)
+        /*if type(of:albums[indexPath.item].photo[0]) == String.self {
             cell.cellImage.image = UIImage(named: albums[indexPath.item].photo[0] as! String)
         }
         else {
             cell.cellImage.image = albums[indexPath.item].photo[0] as? UIImage
-        }
+        }*/
         
         // Configure the cell
         
         return cell
     }
-    
+
     // MARK: UICollectionViewDelegate
     
     /*
@@ -96,3 +97,5 @@ class CollectionViewController: UICollectionViewController {
      */
     
 }
+
+
