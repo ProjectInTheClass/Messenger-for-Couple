@@ -129,7 +129,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             
         
             let date = dateTimeOriginal.components(separatedBy: " ")[0].components(separatedBy: ":")
-            for index in 0...albums.count - 1 {
+            for index in 0..<albums.count {
                 //print("index : " + String(index))
                 
                 if Int(date[0]) == albums[index].year && Int(date[1]) == albums[index].month && Int(date[2]) == albums[index].day {
@@ -169,7 +169,13 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                 
                 }
             }
-
+            if albums.count == 0 {
+                let pnew : [Any] = [image!]
+                let new = Album(year: Int(date[0])!, month:Int(date[1])!, day:Int(date[2])!, photo: pnew)
+                
+                albums.append(new)
+               
+            }
         }
         dismiss(animated: true, completion: nil)
     }

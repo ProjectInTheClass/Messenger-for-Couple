@@ -116,6 +116,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="Vtr-YM-nLr" userLabel="Album"/>
                     <navigationItem key="navigationItem" id="w8s-sr-Ym2">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Hup-m1-n4s">
+                            <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addPhoto:" destination="O5e-gn-ekR" id="JAz-pq-DsR"/>
                             </connections>
@@ -143,13 +144,15 @@
                                 <items>
                                     <navigationItem id="Y2I-BF-jIi">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Ean-KI-a50">
+                                            <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="dismissButtonTapped:" destination="WDJ-Qw-Kcb" id="Yby-Qk-mta"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Wi6-0N-AJp">
+                                            <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <segue destination="oFK-IK-3gN" kind="unwind" identifier="unwindSegue" unwindAction="unwindVC1WithSegue:" id="rYT-yf-00m"/>
+                                                <action selector="pushDone:" destination="WDJ-Qw-Kcb" id="82O-8d-JAp"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -199,6 +202,7 @@
                     <connections>
                         <outlet property="DCollectionView" destination="roD-mr-YfT" id="wQ7-2y-z0m"/>
                         <outlet property="doneButton" destination="Wi6-0N-AJp" id="4f7-Al-gqR"/>
+                        <segue destination="oFK-IK-3gN" kind="unwind" identifier="unwind" unwindAction="unwindVC1WithSegue:" id="5uR-UX-iSB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cz9-X8-KcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -245,6 +249,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ynw-O1-DTI">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="99x-uE-QkD">
+                            <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="WDJ-Qw-Kcb" kind="presentation" identifier="DSegue" id="BXY-Rx-sVv"/>
                             </connections>
