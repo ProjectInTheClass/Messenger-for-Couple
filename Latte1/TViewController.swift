@@ -13,11 +13,9 @@ class TViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     var photo : [Any] = []
     var photoName : String = ""
+    var photoHash : [Int] = []
     
     let picker = UIImagePickerController()
-    @IBAction func addPhoto(_ sender: Any) {
-        openLibrary()
-    }
     
     /*func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
      return photo.count
@@ -33,39 +31,126 @@ class TViewController: UIViewController {
      
      return cell
      }*/
-    
-    
-    func openLibrary() {
-        picker.sourceType = .photoLibrary
-        present(picker, animated: false, completion: nil)
+    @IBAction func unwindVC1 (segue : UIStoryboardSegue) {
+        var dataRecieved : [UIImage] = []
+        if let sourceViewController = segue.source as? DViewController {
+            dataRecieved = sourceViewController.delete
+        }
+
+        for i in 0...dataRecieved.count - 1{
+            for j in 0...photo.count - 1{
+                    if type(of:photo[j]) == String.self {
+                        if UIImage(named: photo[j] as! String) ==  dataRecieved[i]  {
+                            photo.remove(at: j)
+                            break
+                        }
+                    }
+                    else if type(of:photo[j]) == UIImage.self {
+                        if photo[j] as? UIImage == dataRecieved[i] {
+                            photo.remove(at: j)
+                            break
+                        }
+                    }
+                }
+            
+        }
+        for index in 0...albums.count - 1 {
+            var date = photoName.components(separatedBy: "/")
+            if String(albums[index].year) == date[0] && String(albums[index].month) == date[1]  && String(albums[index].day) == date[2] {
+                if photo.count != 0 {
+                    albums[index].photo = photo
+                    break
+                }
+                else {
+                    albums.remove(at: index)
+                }
+                //selectedPhotosName = albums[index].name
+            }
+        }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if photo.count == 0 {
+            let nothing = UIAlertController(title: nil, message: "No photo in this day", preferredStyle: UIAlertController.Style.alert)
+            
+            let ok = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                (action) in
+                
+                /*let storyboard: UIStoryboard = self.storyboard!
+                 let nextView = storyboard.instantiateViewController(withIdentifier: "Main")
+                 self.present(nextView, animated: true, completion: nil)
+                 nextView.viewDidLoad()*/
+                
+                //self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+            nothing.addAction(ok)
+            self.present(nothing, animated: true) {
+                
+            }
+        }
+        else {
+            picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            for i in 0..<photo.count {
+                
+                let imageView = UIImageView()
+                if type(of: photo[i]) == String.self {
+                    imageView.image = UIImage(named: photo[i] as! String)
+                }
+                else if type(of: photo[i]) == UIImage.self {
+                    imageView.image = photo[i] as? UIImage
+                }
+                imageView.contentMode = .scaleAspectFit
+                let xPosition = self.view.frame.width * CGFloat(i)
+                
+                imageView.frame = CGRect(x: xPosition, y: -100, width: self.view.frame.width, height: self.view.frame.height)
+                scrollView.contentSize.width = self.view.frame.width * CGFloat(1+i)
+                
+                scrollView.addSubview(imageView)
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(photo.count)
-        picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        for i in 0..<photo.count {
-            let imageView = UIImageView()
-            if type(of: photo[i]) == String.self {
-                imageView.image = UIImage(named: photo[i] as! String)
+ 
+            picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            for i in 0..<photo.count {
+                
+                let imageView = UIImageView()
+                if type(of: photo[i]) == String.self {
+                    imageView.image = UIImage(named: photo[i] as! String)
+                }
+                else if type(of: photo[i]) == UIImage.self {
+                    imageView.image = photo[i] as? UIImage
+                }
+                imageView.contentMode = .scaleAspectFit
+                let xPosition = self.view.frame.width * CGFloat(i)
+                
+                imageView.frame = CGRect(x: xPosition, y: -100, width: self.view.frame.width, height: self.view.frame.height)
+                scrollView.contentSize.width = self.view.frame.width * CGFloat(1+i)
+                
+                scrollView.addSubview(imageView)
             }
-            else if type(of: photo[i]) == UIImage.self {
-                imageView.image = photo[i] as? UIImage
-            }
-            imageView.contentMode = .scaleAspectFit
-            let xPosition = self.view.frame.width * CGFloat(i)
-            
-            imageView.frame = CGRect(x: xPosition, y: -100, width: self.view.frame.width, height: self.view.frame.height)
-            scrollView.contentSize.width = self.view.frame.width * CGFloat(1+i)
-            
-            scrollView.addSubview(imageView)
-        }
         
         // Do any additional setup after loading the view.
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
+        if  segue.identifier == "DSegue",
+            let detailVC = segue.destination as? DViewController {
+        
+            for i in 0...photo.count - 1{
+                detailVC.photos.append(photo[i])
+            }
+            //detailVC.DCollectionView.reloadData()
+        }
+        
+    }
     
     // MARK: - Navigation
     
@@ -89,7 +174,7 @@ class TViewController: UIViewController {
     
     
 }
-extension TViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+/*extension TViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] {
             /*let localFile = info[UIImagePickerController.InfoKey.imageURL]
@@ -111,4 +196,4 @@ extension TViewController: UIImagePickerControllerDelegate, UINavigationControll
         }
         dismiss(animated: true, completion: nil)
     }
-}
+}*/
