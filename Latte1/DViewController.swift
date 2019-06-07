@@ -61,6 +61,21 @@ class DViewController: UIViewController, UICollectionViewDataSource, UICollectio
     @IBOutlet weak var DCollectionView: UICollectionView!
 
     @IBAction func pushDone(_ sender: Any) {
+        let alertView = UIAlertController(title: "Delete?", message: "Are you sure you want to delete?", preferredStyle: .alert)
+        
+        let deleteAction = UIAlertAction (title: "Delete", style: .destructive ) { alertAction in
+            
+            self.performSegue(withIdentifier: "unwind", sender: self)
+        }
+        
+        let cancelAction = UIAlertAction (title: "Cancel", style: .cancel ) {  alertAction in
+            
+        }
+        
+        alertView.addAction(deleteAction)
+        alertView.addAction(cancelAction)
+        
+        self.present(alertView, animated: true, completion: nil)
         
         /*let alert = UIAlertController(title: "Really delete seletected photos?", message: "If you push Delete button, can't recover the data", preferredStyle: UIAlertController.Style.alert)
         
@@ -111,7 +126,10 @@ class DViewController: UIViewController, UICollectionViewDataSource, UICollectio
     }
     
     @IBAction func goTo1(_ sender: UIButton) {
-        performSegue(withIdentifier: "unwindSegue", sender: self)
+        
+        
+        
+        //performSegue(withIdentifier: "unwindSegue", sender: self)
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
