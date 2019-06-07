@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E02A8772284103600B26611 /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E02A8762284103600B26611 /* AViewController.swift */; };
+		0E02A8772284103600B26611 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E02A8762284103600B26611 /* CollectionViewController.swift */; };
 		0E02A87B228474B100B26611 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E02A87A228474B100B26611 /* DataCenter.swift */; };
 		0E02A87F2284970B00B26611 /* TViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E02A87E2284970B00B26611 /* TViewController.swift */; };
-		0E08E2B722A50890000EADCB /* DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2B622A50890000EADCB /* DViewController.swift */; };
 		0ED3D5F32282AB2100EB4616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */; };
 		0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F42282AB2100EB4616 /* ViewController.swift */; };
 		0ED3D5FA2282AB2400EB4616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F92282AB2400EB4616 /* Assets.xcassets */; };
@@ -46,15 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
-		0E02A8762284103600B26611 /* AViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
-=======
 		00495CD891B9ED3DE36A3018 /* Pods_Latte1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Latte1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E02A8762284103600B26611 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
->>>>>>> 092a9b757341f159c4849cf1c65b6340f8c2e04b
 		0E02A87A228474B100B26611 /* DataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
 		0E02A87E2284970B00B26611 /* TViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TViewController.swift; sourceTree = "<group>"; };
-		0E08E2B622A50890000EADCB /* DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DViewController.swift; sourceTree = "<group>"; };
 		0ED3D5EF2282AB2100EB4616 /* Latte1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Latte1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ED3D5F42282AB2100EB4616 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -148,14 +142,13 @@
 			children = (
 				0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */,
 				0ED3D5F42282AB2100EB4616 /* ViewController.swift */,
-				0E08E2B622A50890000EADCB /* DViewController.swift */,
 				AF25C9E9229FDE3000340ACA /* Main.storyboard */,
 				AFF275D12297E1AB00696394 /* Chats.storyboard */,
 				AFF275D32297E1B600696394 /* Album.storyboard */,
 				AFF275D52297E1BF00696394 /* Calendar.storyboard */,
 				AFF275D72297E1C600696394 /* Days.storyboard */,
 				0E02A87E2284970B00B26611 /* TViewController.swift */,
-				0E02A8762284103600B26611 /* AViewController.swift */,
+				0E02A8762284103600B26611 /* CollectionViewController.swift */,
 				0ED3D5F92282AB2400EB4616 /* Assets.xcassets */,
 				0E02A87A228474B100B26611 /* DataCenter.swift */,
 				0ED3D5FE2282AB2400EB4616 /* Info.plist */,
@@ -427,13 +420,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				0E02A8772284103600B26611 /* AViewController.swift in Sources */,
-				0E08E2B722A50890000EADCB /* DViewController.swift in Sources */,
-=======
 				51B5A7E122A10D24004611E3 /* CalendarViewController.swift in Sources */,
 				0E02A8772284103600B26611 /* CollectionViewController.swift in Sources */,
->>>>>>> 092a9b757341f159c4849cf1c65b6340f8c2e04b
 				0E02A87F2284970B00B26611 /* TViewController.swift in Sources */,
 				0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */,
 				0E02A87B228474B100B26611 /* DataCenter.swift in Sources */,
