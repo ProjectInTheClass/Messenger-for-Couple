@@ -20,7 +20,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Lem-VD-BLl"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Days" image="like" id="VDV-FE-unO" userLabel="Calendar"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="like" id="VDV-FE-unO" userLabel="Calendar"/>
                     <navigationItem key="navigationItem" id="SWH-xM-r4u"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PwC-iT-uvu" sceneMemberID="firstResponder"/>
