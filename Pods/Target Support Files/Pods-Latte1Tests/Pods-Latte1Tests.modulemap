@@ -1,0 +1,6 @@
+framework module Pods_Latte1Tests {
+  umbrella header "Pods-Latte1Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
