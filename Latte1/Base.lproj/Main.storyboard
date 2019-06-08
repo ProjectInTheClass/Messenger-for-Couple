@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fz3-ab-Iug">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fz3-ab-Iug">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,7 +13,7 @@
         <scene sceneID="nbe-sa-hYS">
             <objects>
                 <viewControllerPlaceholder storyboardName="Chats" id="5rI-OL-VPG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="kEY-Vj-9bh"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="like" id="kEY-Vj-9bh"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0S-p8-x6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -23,7 +23,7 @@
         <scene sceneID="GHN-rG-hSM">
             <objects>
                 <viewControllerPlaceholder storyboardName="Album" id="QOt-oA-E4B" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Album" id="DEy-v3-UbY"/>
+                    <tabBarItem key="tabBarItem" title="Album" image="like" id="DEy-v3-UbY"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AxS-tr-OFl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -33,7 +33,7 @@
         <scene sceneID="f3y-xY-iZg">
             <objects>
                 <viewControllerPlaceholder storyboardName="Calendar" id="APL-GU-zpZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calendar" id="uXN-Cu-LPf"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="like" id="uXN-Cu-LPf"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbF-Pp-0ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,7 +43,7 @@
         <scene sceneID="zfu-HL-Ukt">
             <objects>
                 <viewControllerPlaceholder storyboardName="Days" id="mHP-TU-Ml4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="RvL-L2-Agg"/>
+                    <tabBarItem key="tabBarItem" title="Days" image="like" id="RvL-L2-Agg"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KH0-Rm-trD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,4 +73,7 @@
             <point key="canvasLocation" x="-1275" y="-255"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="like" width="21.333333969116211" height="21.333333969116211"/>
+    </resources>
 </document>

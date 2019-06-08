@@ -20,6 +20,9 @@
 		51B5A7E122A10D24004611E3 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5A7E022A10D24004611E3 /* CalendarViewController.swift */; };
 		8E96184852F5D2D0764B0285 /* Pods_Latte1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7907C5A3C349E94EDF8900 /* Pods_Latte1UITests.framework */; };
 		AF25C9EB229FDE3000340ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF25C9E9229FDE3000340ACA /* Main.storyboard */; };
+		AFD3569F22AB47F400BBF185 /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD3569E22AB47F400BBF185 /* DaysViewController.swift */; };
+		AFD356A022AB47F400BBF185 /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD3569E22AB47F400BBF185 /* DaysViewController.swift */; };
+		AFD356A222AB483500BBF185 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD356A122AB483500BBF185 /* DataCenter.swift */; };
 		AFF275D22297E1AB00696394 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D12297E1AB00696394 /* Chats.storyboard */; };
 		AFF275D42297E1B600696394 /* Album.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D32297E1B600696394 /* Album.storyboard */; };
 		AFF275D62297E1BF00696394 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D52297E1BF00696394 /* Calendar.storyboard */; };
@@ -72,6 +75,8 @@
 		6FA210C6DF6BDF2A37A5D59B /* Pods-Latte1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1UITests.release.xcconfig"; path = "Target Support Files/Pods-Latte1UITests/Pods-Latte1UITests.release.xcconfig"; sourceTree = "<group>"; };
 		7381869CDF62D5204DADC344 /* Pods-Latte1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1Tests.debug.xcconfig"; path = "Target Support Files/Pods-Latte1Tests/Pods-Latte1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF25C9EA229FDE3000340ACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AFD3569E22AB47F400BBF185 /* DaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysViewController.swift; sourceTree = "<group>"; };
+		AFD356A122AB483500BBF185 /* DataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
 		AFF275D12297E1AB00696394 /* Chats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
 		AFF275D32297E1B600696394 /* Album.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Album.storyboard; sourceTree = "<group>"; };
 		AFF275D52297E1BF00696394 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -150,6 +155,8 @@
 				AFF275D52297E1BF00696394 /* Calendar.storyboard */,
 				AFF275D72297E1C600696394 /* Days.storyboard */,
 				0E02A87E2284970B00B26611 /* TViewController.swift */,
+				AFD3569E22AB47F400BBF185 /* DaysViewController.swift */,
+				AFD356A122AB483500BBF185 /* DataCenter.swift */,
 				0E08E2B822AA56BA000EADCB /* AViewController.swift */,
 				0E08E2BA22AA57A6000EADCB /* DViewController.swift */,
 				0ED3D5F92282AB2400EB4616 /* Assets.xcassets */,
@@ -422,9 +429,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFD356A222AB483500BBF185 /* DataCenter.swift in Sources */,
 				51B5A7E122A10D24004611E3 /* CalendarViewController.swift in Sources */,
 				0E02A87F2284970B00B26611 /* TViewController.swift in Sources */,
 				0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */,
+				AFD3569F22AB47F400BBF185 /* DaysViewController.swift in Sources */,
 				0E02A87B228474B100B26611 /* DataCenter.swift in Sources */,
 				0E08E2BB22AA57A6000EADCB /* DViewController.swift in Sources */,
 				0E08E2B922AA56BA000EADCB /* AViewController.swift in Sources */,
@@ -445,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ED3D6132282AB2400EB4616 /* Latte1UITests.swift in Sources */,
+				AFD356A022AB47F400BBF185 /* DaysViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
