@@ -68,7 +68,7 @@ extension CalendarViewController : FSCalendarDataSource, FSCalendarDelegate{
         let whatdate = dateFormatter.string(from:date)
         self.whatdate = whatdate
         self.table.reloadData()
-        print("Date is"+whatdate )
+        print("Date is "+whatdate )
         
     }
 }

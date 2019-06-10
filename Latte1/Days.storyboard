@@ -60,6 +60,13 @@
                                 <rect key="frame" x="87" y="384" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0t1-b7-q1V">
+                                <rect key="frame" x="79" y="101" width="248" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="EO0-b6-EYk"/>
@@ -67,14 +74,17 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="Auth" destination="0t1-b7-q1V" id="3yT-1X-9id"/>
                         <outlet property="BottomText" destination="zYs-he-d2f" id="wU4-ou-SAf"/>
                         <outlet property="LeadText" destination="mtR-1E-55P" id="VY7-zQ-ILa"/>
                         <outlet property="RealDays" destination="Iiu-WN-zxC" id="CDv-R7-snL"/>
                         <outlet property="UpperText" destination="KSG-Jy-wLx" id="ajU-xa-8I2"/>
                         <outlet property="WaitingImage" destination="Msh-oM-F5J" id="VG9-my-6Br"/>
+                        <segue destination="EO7-qn-tBf" kind="unwind" unwindAction="unwind2:" id="OtH-TS-RF8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oK0-g8-bhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="EO7-qn-tBf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1242.0289855072465" y="601.33928571428567"/>
         </scene>

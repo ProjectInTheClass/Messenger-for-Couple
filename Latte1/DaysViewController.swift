@@ -8,8 +8,11 @@
 
 import UIKit
 import Foundation
+import FirebaseAuth
 
 class DaysViewController: UIViewController {
+    @IBOutlet weak var Auth: UILabel!
+    
     @IBOutlet weak var RealDays: UILabel!
     @IBOutlet weak var UpperText: UILabel!
     @IBOutlet weak var BottomText: UILabel!
@@ -73,7 +76,7 @@ class DaysViewController: UIViewController {
     }
         
     func Calcul(){
-        for i in 1..<8 {
+        for i in 0..<7 {
             if(myLoveDay[i] == true && yourLoveDay[i] == true){
                 realdays += 1
             }
@@ -164,7 +167,7 @@ class DaysViewController: UIViewController {
                 BottomText.text = "Congraturations"
             }
         }
-        if(nowWeekday == WeekDay.Mon && nowHour == 0 && nowMin == 0 && nowSec == 0){
+        else if(nowWeekday == WeekDay.Mon && nowHour == 0 && nowMin == 0 && nowSec == 0){
             realdays = 0
             self.view.sendSubviewToBack(RealDays)
         }
@@ -185,6 +188,7 @@ class DaysViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        Auth.text = "Welcome " + Email
         Change()
         
         super.viewDidLoad()
@@ -195,15 +199,4 @@ class DaysViewController: UIViewController {
         
         super.viewDidAppear(animated)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

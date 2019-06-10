@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E02A87B228474B100B26611 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E02A87A228474B100B26611 /* DataCenter.swift */; };
 		0E02A87F2284970B00B26611 /* TViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E02A87E2284970B00B26611 /* TViewController.swift */; };
 		0E08E2B922AA56BA000EADCB /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2B822AA56BA000EADCB /* AViewController.swift */; };
 		0E08E2BB22AA57A6000EADCB /* DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2BA22AA57A6000EADCB /* DViewController.swift */; };
@@ -15,14 +14,18 @@
 		0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F42282AB2100EB4616 /* ViewController.swift */; };
 		0ED3D5FA2282AB2400EB4616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F92282AB2400EB4616 /* Assets.xcassets */; };
 		0ED3D5FD2282AB2400EB4616 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3D5FB2282AB2400EB4616 /* LaunchScreen.storyboard */; };
-		0ED3D6082282AB2400EB4616 /* Latte1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D6072282AB2400EB4616 /* Latte1Tests.swift */; };
-		0ED3D6132282AB2400EB4616 /* Latte1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D6122282AB2400EB4616 /* Latte1UITests.swift */; };
 		51B5A7E122A10D24004611E3 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5A7E022A10D24004611E3 /* CalendarViewController.swift */; };
 		8E96184852F5D2D0764B0285 /* Pods_Latte1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7907C5A3C349E94EDF8900 /* Pods_Latte1UITests.framework */; };
 		AF25C9EB229FDE3000340ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF25C9E9229FDE3000340ACA /* Main.storyboard */; };
+		AF95B69E22ADEC7100EF8AB9 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF95B69D22ADEC7100EF8AB9 /* DataCenter.swift */; };
+		AF95B6A022AE077300EF8AB9 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF95B69F22AE077300EF8AB9 /* LoadingViewController.swift */; };
+		AF95B6A222AE644F00EF8AB9 /* AuthDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF95B6A122AE644F00EF8AB9 /* AuthDateViewController.swift */; };
+		AF95B6A422AE7AD700EF8AB9 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF95B6A322AE7AD700EF8AB9 /* ConfirmViewController.swift */; };
 		AFD3569F22AB47F400BBF185 /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD3569E22AB47F400BBF185 /* DaysViewController.swift */; };
 		AFD356A022AB47F400BBF185 /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD3569E22AB47F400BBF185 /* DaysViewController.swift */; };
-		AFD356A222AB483500BBF185 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD356A122AB483500BBF185 /* DataCenter.swift */; };
+		AFE287F622AD54A70051F417 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE287F522AD54A70051F417 /* LoginViewController.swift */; };
+		AFE287F822AD54EE0051F417 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE287F722AD54EE0051F417 /* AuthViewController.swift */; };
+		AFE287FA22ADE6DD0051F417 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFE287F922ADE6DD0051F417 /* GoogleService-Info.plist */; };
 		AFF275D22297E1AB00696394 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D12297E1AB00696394 /* Chats.storyboard */; };
 		AFF275D42297E1B600696394 /* Album.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D32297E1B600696394 /* Album.storyboard */; };
 		AFF275D62297E1BF00696394 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D52297E1BF00696394 /* Calendar.storyboard */; };
@@ -50,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		00495CD891B9ED3DE36A3018 /* Pods_Latte1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Latte1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E02A87A228474B100B26611 /* DataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
 		0E02A87E2284970B00B26611 /* TViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TViewController.swift; sourceTree = "<group>"; };
 		0E08E2B822AA56BA000EADCB /* AViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
 		0E08E2BA22AA57A6000EADCB /* DViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DViewController.swift; sourceTree = "<group>"; };
@@ -61,11 +63,7 @@
 		0ED3D5FC2282AB2400EB4616 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0ED3D5FE2282AB2400EB4616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ED3D6032282AB2400EB4616 /* Latte1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Latte1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0ED3D6072282AB2400EB4616 /* Latte1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latte1Tests.swift; sourceTree = "<group>"; };
-		0ED3D6092282AB2400EB4616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ED3D60E2282AB2400EB4616 /* Latte1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Latte1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0ED3D6122282AB2400EB4616 /* Latte1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latte1UITests.swift; sourceTree = "<group>"; };
-		0ED3D6142282AB2400EB4616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		105CAF61606BF9D902D64EFA /* Pods-Latte1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1Tests.release.xcconfig"; path = "Target Support Files/Pods-Latte1Tests/Pods-Latte1Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2853CEB2828AA7B8FF8C706E /* Pods-Latte1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1.release.xcconfig"; path = "Target Support Files/Pods-Latte1/Pods-Latte1.release.xcconfig"; sourceTree = "<group>"; };
 		4220FFA60A274E4278286F8D /* Pods-Latte1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1.debug.xcconfig"; path = "Target Support Files/Pods-Latte1/Pods-Latte1.debug.xcconfig"; sourceTree = "<group>"; };
@@ -75,8 +73,14 @@
 		6FA210C6DF6BDF2A37A5D59B /* Pods-Latte1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1UITests.release.xcconfig"; path = "Target Support Files/Pods-Latte1UITests/Pods-Latte1UITests.release.xcconfig"; sourceTree = "<group>"; };
 		7381869CDF62D5204DADC344 /* Pods-Latte1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1Tests.debug.xcconfig"; path = "Target Support Files/Pods-Latte1Tests/Pods-Latte1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF25C9EA229FDE3000340ACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AF95B69D22ADEC7100EF8AB9 /* DataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
+		AF95B69F22AE077300EF8AB9 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		AF95B6A122AE644F00EF8AB9 /* AuthDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDateViewController.swift; sourceTree = "<group>"; };
+		AF95B6A322AE7AD700EF8AB9 /* ConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		AFD3569E22AB47F400BBF185 /* DaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysViewController.swift; sourceTree = "<group>"; };
-		AFD356A122AB483500BBF185 /* DataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
+		AFE287F522AD54A70051F417 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AFE287F722AD54EE0051F417 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		AFE287F922ADE6DD0051F417 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AFF275D12297E1AB00696394 /* Chats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
 		AFF275D32297E1B600696394 /* Album.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Album.storyboard; sourceTree = "<group>"; };
 		AFF275D52297E1BF00696394 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -126,11 +130,10 @@
 			isa = PBXGroup;
 			children = (
 				0ED3D5F12282AB2100EB4616 /* Latte1 */,
-				0ED3D6062282AB2400EB4616 /* Latte1Tests */,
-				0ED3D6112282AB2400EB4616 /* Latte1UITests */,
 				0ED3D5F02282AB2100EB4616 /* Products */,
 				B30B348E21BEFA86C6538259 /* Pods */,
 				00A877E4B01E44C2F8A2A01F /* Frameworks */,
+				AF95B69A22ADEB9B00EF8AB9 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,42 +151,36 @@
 			isa = PBXGroup;
 			children = (
 				0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */,
-				0ED3D5F42282AB2100EB4616 /* ViewController.swift */,
 				AF25C9E9229FDE3000340ACA /* Main.storyboard */,
 				AFF275D12297E1AB00696394 /* Chats.storyboard */,
 				AFF275D32297E1B600696394 /* Album.storyboard */,
 				AFF275D52297E1BF00696394 /* Calendar.storyboard */,
 				AFF275D72297E1C600696394 /* Days.storyboard */,
-				0E02A87E2284970B00B26611 /* TViewController.swift */,
-				AFD3569E22AB47F400BBF185 /* DaysViewController.swift */,
-				AFD356A122AB483500BBF185 /* DataCenter.swift */,
+				AF95B69F22AE077300EF8AB9 /* LoadingViewController.swift */,
+				AFE287F522AD54A70051F417 /* LoginViewController.swift */,
+				AF95B6A122AE644F00EF8AB9 /* AuthDateViewController.swift */,
+				AFE287F722AD54EE0051F417 /* AuthViewController.swift */,
+				AF95B6A322AE7AD700EF8AB9 /* ConfirmViewController.swift */,
+				51B5A7E022A10D24004611E3 /* CalendarViewController.swift */,
+				0ED3D5F42282AB2100EB4616 /* ViewController.swift */,
 				0E08E2B822AA56BA000EADCB /* AViewController.swift */,
 				0E08E2BA22AA57A6000EADCB /* DViewController.swift */,
+				0E02A87E2284970B00B26611 /* TViewController.swift */,
+				AFD3569E22AB47F400BBF185 /* DaysViewController.swift */,
+				AF95B69D22ADEC7100EF8AB9 /* DataCenter.swift */,
 				0ED3D5F92282AB2400EB4616 /* Assets.xcassets */,
-				0E02A87A228474B100B26611 /* DataCenter.swift */,
+				AFE287F922ADE6DD0051F417 /* GoogleService-Info.plist */,
 				0ED3D5FE2282AB2400EB4616 /* Info.plist */,
 				0ED3D5FB2282AB2400EB4616 /* LaunchScreen.storyboard */,
-				51B5A7E022A10D24004611E3 /* CalendarViewController.swift */,
 			);
 			path = Latte1;
 			sourceTree = "<group>";
 		};
-		0ED3D6062282AB2400EB4616 /* Latte1Tests */ = {
+		AF95B69A22ADEB9B00EF8AB9 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				0ED3D6072282AB2400EB4616 /* Latte1Tests.swift */,
-				0ED3D6092282AB2400EB4616 /* Info.plist */,
 			);
-			path = Latte1Tests;
-			sourceTree = "<group>";
-		};
-		0ED3D6112282AB2400EB4616 /* Latte1UITests */ = {
-			isa = PBXGroup;
-			children = (
-				0ED3D6122282AB2400EB4616 /* Latte1UITests.swift */,
-				0ED3D6142282AB2400EB4616 /* Info.plist */,
-			);
-			path = Latte1UITests;
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		B30B348E21BEFA86C6538259 /* Pods */ = {
@@ -308,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFF275D62297E1BF00696394 /* Calendar.storyboard in Resources */,
+				AFE287FA22ADE6DD0051F417 /* GoogleService-Info.plist in Resources */,
 				0ED3D5FD2282AB2400EB4616 /* LaunchScreen.storyboard in Resources */,
 				AF25C9EB229FDE3000340ACA /* Main.storyboard in Resources */,
 				AFF275D82297E1C600696394 /* Days.storyboard in Resources */,
@@ -362,16 +360,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Latte1/Pods-Latte1-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Latte1/Pods-Latte1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Latte1/Pods-Latte1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -429,14 +422,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFD356A222AB483500BBF185 /* DataCenter.swift in Sources */,
+				AFE287F822AD54EE0051F417 /* AuthViewController.swift in Sources */,
+				AF95B69E22ADEC7100EF8AB9 /* DataCenter.swift in Sources */,
 				51B5A7E122A10D24004611E3 /* CalendarViewController.swift in Sources */,
+				AF95B6A422AE7AD700EF8AB9 /* ConfirmViewController.swift in Sources */,
 				0E02A87F2284970B00B26611 /* TViewController.swift in Sources */,
 				0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */,
 				AFD3569F22AB47F400BBF185 /* DaysViewController.swift in Sources */,
-				0E02A87B228474B100B26611 /* DataCenter.swift in Sources */,
 				0E08E2BB22AA57A6000EADCB /* DViewController.swift in Sources */,
 				0E08E2B922AA56BA000EADCB /* AViewController.swift in Sources */,
+				AF95B6A022AE077300EF8AB9 /* LoadingViewController.swift in Sources */,
+				AFE287F622AD54A70051F417 /* LoginViewController.swift in Sources */,
+				AF95B6A222AE644F00EF8AB9 /* AuthDateViewController.swift in Sources */,
 				0ED3D5F32282AB2100EB4616 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +442,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ED3D6082282AB2400EB4616 /* Latte1Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +449,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ED3D6132282AB2400EB4616 /* Latte1UITests.swift in Sources */,
 				AFD356A022AB47F400BBF185 /* DaysViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

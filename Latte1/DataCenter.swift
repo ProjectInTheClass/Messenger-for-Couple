@@ -37,3 +37,9 @@ var nowYear = 0, nowMonth = 0, nowDay = 0, nowHour = 0, nowMin = 0, nowSec = 0
 var nowWeekday : WeekDay = WeekDay.Mon
 var numWeekday : Int = 0
 var realdays : Int = 0
+
+// LOGIN
+var Email: String = ""
+var Password: String = ""
+var myBirthDate: String = ""
+var ourLoveDate: String = ""
