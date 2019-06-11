@@ -15,6 +15,7 @@
 		0ED3D5FA2282AB2400EB4616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F92282AB2400EB4616 /* Assets.xcassets */; };
 		0ED3D5FD2282AB2400EB4616 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3D5FB2282AB2400EB4616 /* LaunchScreen.storyboard */; };
 		51B5A7E122A10D24004611E3 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5A7E022A10D24004611E3 /* CalendarViewController.swift */; };
+		51B5A7E922AFA2BD004611E3 /* AddSchedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5A7E822AFA2BD004611E3 /* AddSchedViewController.swift */; };
 		8E96184852F5D2D0764B0285 /* Pods_Latte1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7907C5A3C349E94EDF8900 /* Pods_Latte1UITests.framework */; };
 		AF25C9EB229FDE3000340ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF25C9E9229FDE3000340ACA /* Main.storyboard */; };
 		AF95B69E22ADEC7100EF8AB9 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF95B69D22ADEC7100EF8AB9 /* DataCenter.swift */; };
@@ -69,6 +70,7 @@
 		4220FFA60A274E4278286F8D /* Pods-Latte1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1.debug.xcconfig"; path = "Target Support Files/Pods-Latte1/Pods-Latte1.debug.xcconfig"; sourceTree = "<group>"; };
 		45163B3F5B080AA409A554E5 /* Pods-Latte1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1UITests.debug.xcconfig"; path = "Target Support Files/Pods-Latte1UITests/Pods-Latte1UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		51B5A7E022A10D24004611E3 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		51B5A7E822AFA2BD004611E3 /* AddSchedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedViewController.swift; sourceTree = "<group>"; };
 		5C7907C5A3C349E94EDF8900 /* Pods_Latte1UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Latte1UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA210C6DF6BDF2A37A5D59B /* Pods-Latte1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1UITests.release.xcconfig"; path = "Target Support Files/Pods-Latte1UITests/Pods-Latte1UITests.release.xcconfig"; sourceTree = "<group>"; };
 		7381869CDF62D5204DADC344 /* Pods-Latte1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1Tests.debug.xcconfig"; path = "Target Support Files/Pods-Latte1Tests/Pods-Latte1Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				AFE287F722AD54EE0051F417 /* AuthViewController.swift */,
 				AF95B6A322AE7AD700EF8AB9 /* ConfirmViewController.swift */,
 				51B5A7E022A10D24004611E3 /* CalendarViewController.swift */,
+				51B5A7E822AFA2BD004611E3 /* AddSchedViewController.swift */,
 				0ED3D5F42282AB2100EB4616 /* ViewController.swift */,
 				0E08E2B822AA56BA000EADCB /* AViewController.swift */,
 				0E08E2BA22AA57A6000EADCB /* DViewController.swift */,
@@ -428,6 +431,7 @@
 				AF95B6A422AE7AD700EF8AB9 /* ConfirmViewController.swift in Sources */,
 				0E02A87F2284970B00B26611 /* TViewController.swift in Sources */,
 				0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */,
+				51B5A7E922AFA2BD004611E3 /* AddSchedViewController.swift in Sources */,
 				AFD3569F22AB47F400BBF185 /* DaysViewController.swift in Sources */,
 				0E08E2BB22AA57A6000EADCB /* DViewController.swift in Sources */,
 				0E08E2B922AA56BA000EADCB /* AViewController.swift in Sources */,

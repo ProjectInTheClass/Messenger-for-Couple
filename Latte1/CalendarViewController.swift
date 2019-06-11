@@ -11,6 +11,9 @@ import FSCalendar
 
 class CalendarViewController: UIViewController {
 
+    // 실시간 데이터베이스 root 참조 변수.
+    //let rootRef = Database.database().reference()
+    
     var dateFormatter = DateFormatter()
     fileprivate weak var calendar : FSCalendar!
     var table : UITableView!
@@ -54,6 +57,12 @@ class CalendarViewController: UIViewController {
         self.table = table
         // Do any additional setup after loading the view.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let calendarModal = segue.destination as? AddSchedViewController else {return}
+        calendarModal.datevalue = self.whatdate;
+    }
+ 
 }
 extension CalendarViewController : FSCalendarDataSource, FSCalendarDelegate{
     
