@@ -10,8 +10,6 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-
-
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -56,7 +54,6 @@ extension LoginViewController{
         Password = password
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            
             if user != nil {
                 // TODO: 로그인 성공 user 객체에서 정보 사용
                 print("login success")

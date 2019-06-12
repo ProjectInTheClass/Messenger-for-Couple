@@ -117,14 +117,13 @@ class TViewController: UIViewController {
  
             picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
             for i in 0..<photo.count {
+                
                 let imageView = UIImageView()
-                print(type(of: photo[i]))
-                if type(of: photo[i]) == URL.self {
-                    imageView.image = photo[i] as? UIImage
-                }
-                else {
-                //if type(of: photo[i]) == String.self {
+                if type(of: photo[i]) == String.self {
                     imageView.image = UIImage(named: photo[i] as! String)
+                }
+                else if type(of: photo[i]) == UIImage.self {
+                    imageView.image = photo[i] as? UIImage
                 }
                 imageView.contentMode = .scaleAspectFit
                 let xPosition = self.view.frame.width * CGFloat(i)

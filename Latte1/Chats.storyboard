@@ -62,7 +62,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="messageImage" destination="nFc-lR-b2H" id="pUk-5m-X8t"/>
-                                            <outlet property="textLabel" destination="aI6-Ld-Ox5" id="Idl-OW-Yhd"/>
+                                            <outlet property="textLabel" destination="aI6-Ld-Ox5" id="yEU-ZW-JHL"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -124,6 +124,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nhR-YV-jbP"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bj-2g-agp" userLabel="First Responder" sceneMemberID="firstResponder"/>

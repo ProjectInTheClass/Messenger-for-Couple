@@ -10,8 +10,8 @@
 		0E02A87F2284970B00B26611 /* TViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E02A87E2284970B00B26611 /* TViewController.swift */; };
 		0E08E2B922AA56BA000EADCB /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2B822AA56BA000EADCB /* AViewController.swift */; };
 		0E08E2BB22AA57A6000EADCB /* DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2BA22AA57A6000EADCB /* DViewController.swift */; };
-		0E08E2C122B19E74000EADCB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2C022B19E74000EADCB /* ChatViewController.swift */; };
-		0E08E2C422B19F12000EADCB /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2C322B19F12000EADCB /* FirebaseDataService.swift */; };
+		0E08E2C622B1A099000EADCB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2C522B1A099000EADCB /* ChatViewController.swift */; };
+		0E08E2C822B1A0A9000EADCB /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2C722B1A0A9000EADCB /* FirebaseDataService.swift */; };
 		0ED3D5F32282AB2100EB4616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */; };
 		0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F42282AB2100EB4616 /* ViewController.swift */; };
 		0ED3D5FA2282AB2400EB4616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F92282AB2400EB4616 /* Assets.xcassets */; };
@@ -59,8 +59,8 @@
 		0E02A87E2284970B00B26611 /* TViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TViewController.swift; sourceTree = "<group>"; };
 		0E08E2B822AA56BA000EADCB /* AViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
 		0E08E2BA22AA57A6000EADCB /* DViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DViewController.swift; sourceTree = "<group>"; };
-		0E08E2C022B19E74000EADCB /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		0E08E2C322B19F12000EADCB /* FirebaseDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
+		0E08E2C522B1A099000EADCB /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		0E08E2C722B1A0A9000EADCB /* FirebaseDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
 		0ED3D5EF2282AB2100EB4616 /* Latte1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Latte1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ED3D5F42282AB2100EB4616 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -165,13 +165,13 @@
 				AF95B69F22AE077300EF8AB9 /* LoadingViewController.swift */,
 				AFE287F522AD54A70051F417 /* LoginViewController.swift */,
 				AF95B6A122AE644F00EF8AB9 /* AuthDateViewController.swift */,
-				0E08E2C322B19F12000EADCB /* FirebaseDataService.swift */,
 				AFE287F722AD54EE0051F417 /* AuthViewController.swift */,
+				0E08E2C522B1A099000EADCB /* ChatViewController.swift */,
 				AF95B6A322AE7AD700EF8AB9 /* ConfirmViewController.swift */,
-				0E08E2C022B19E74000EADCB /* ChatViewController.swift */,
 				51B5A7E022A10D24004611E3 /* CalendarViewController.swift */,
 				51B5A7E822AFA2BD004611E3 /* AddSchedViewController.swift */,
 				0ED3D5F42282AB2100EB4616 /* ViewController.swift */,
+				0E08E2C722B1A0A9000EADCB /* FirebaseDataService.swift */,
 				0E08E2B822AA56BA000EADCB /* AViewController.swift */,
 				0E08E2BA22AA57A6000EADCB /* DViewController.swift */,
 				0E02A87E2284970B00B26611 /* TViewController.swift */,
@@ -431,7 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E08E2C422B19F12000EADCB /* FirebaseDataService.swift in Sources */,
+				0E08E2C822B1A0A9000EADCB /* FirebaseDataService.swift in Sources */,
 				AFE287F822AD54EE0051F417 /* AuthViewController.swift in Sources */,
 				AF95B69E22ADEC7100EF8AB9 /* DataCenter.swift in Sources */,
 				51B5A7E122A10D24004611E3 /* CalendarViewController.swift in Sources */,
@@ -445,7 +445,7 @@
 				AF95B6A022AE077300EF8AB9 /* LoadingViewController.swift in Sources */,
 				AFE287F622AD54A70051F417 /* LoginViewController.swift in Sources */,
 				AF95B6A222AE644F00EF8AB9 /* AuthDateViewController.swift in Sources */,
-				0E08E2C122B19E74000EADCB /* ChatViewController.swift in Sources */,
+				0E08E2C622B1A099000EADCB /* ChatViewController.swift in Sources */,
 				0ED3D5F32282AB2100EB4616 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

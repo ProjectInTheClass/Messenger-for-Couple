@@ -94,6 +94,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatCell", for: indexPath) as! ChatMessageCell
         let message = messages[indexPath.item]
+    
         cell.textLabel.text = message.text
         setupChatCell(cell: cell, message: message)
         if message.text.characters.count > 0 {
