@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class AddSchedViewController: UIViewController {
     var datevalue : String!
     var schedstring : String!
+    //var rootRef : DatabaseReference!
     @IBOutlet weak var DateLabel: UILabel!
     
     @IBOutlet weak var SchedText: UITextField!
@@ -19,6 +21,7 @@ class AddSchedViewController: UIViewController {
         super.viewDidLoad()
         // 일정을 추가할 날짜를 Label로 보여주기
         DateLabel.text = datevalue
+        // rootRef = Database.database().reference()
         // Do any additional setup after loading the view.
     }
     
@@ -30,8 +33,19 @@ class AddSchedViewController: UIViewController {
     
     @IBAction func TouchComplete(_ sender: Any) {
         // 완료버튼을 누르면 후에 데이터베이스에 일정 추가
-        schedstring = SchedText.text
-        print(schedstring)
+        // text Label에 아무것도 입력된것이 아닌걸 제외하고는 일정 추가하도록 설정.
+        
+        if(SchedText.text != nil){
+            schedstring = SchedText!.text
+            print(schedstring)
+            //데이터베이스의 schedule 서브 트리의 해당 날짜에 사용자 id 의 데이터로 일정(String) 한개 추가
+            //"schedule" : 일정이 저장되어 있는 서브트리 명
+            // datevalue : 위의 서브트리에서 추가하려는 날짜의 서브트리로 이동하여 일정 저장.ㄴ
+            
+            // 데이터베이스에 잘 추가되는지 확인해보기
+            // rootRef.child("schedule").child(datevalue).childByAutoId().setValue(schedstring)
+        }
+        // 이전 화면으로 되돌아 가기.
         dismiss(animated: true, completion: nil)
     }
     /*

@@ -8,17 +8,20 @@
 
 import UIKit
 import FSCalendar
+import FirebaseDatabase
 
 class CalendarViewController: UIViewController {
 
     // 실시간 데이터베이스 root 참조 변수.
-    //let rootRef = Database.database().reference()
+    var rootRef : DatabaseReference!
     
     var dateFormatter = DateFormatter()
     fileprivate weak var calendar : FSCalendar!
     var table : UITableView!
     var whatdate : String!
     var data : [String:[String]] = ["2019년05월15일":["영화"],"2019년05월19일":["카페","영화"],"2019년05월24일":["2박3일부산"],"2019년05월31일":["공연","영화"]]
+    var scheddata = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,11 +54,30 @@ class CalendarViewController: UIViewController {
         
         view.addSubview(calendar)
         view.addSubview(table)
-        
+
         self.dateFormatter = dateFormatter
         self.calendar = calendar
         self.table = table
         // Do any additional setup after loading the view.
+        
+        // 데이터 베이스 참조 연결
+        rootRef = Database.database().reference()
+        // 여기 위치가 맞을까???
+    
+        // 예상 위치1
+        /*
+        rootRef.child("scheduler").child(whatdate).observe(.childAdded) { (snapshot) in
+            // 서브트리 스케줄러의 자식인 whatdate의 자식으로 데이터가 추가될때 실행됨
+            // snapshot 변수로부터 해당 위치에 있는 데이터들을 가져오고 그것을 문자 배열 scheddata에 추가
+            let sched = snapshot.value as? String
+            
+            if let actualsched = sched{
+                self.scheddata.append(actualsched)
+                
+                self.table.reloadData()
+            }
+        }
+         */
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -85,29 +107,52 @@ extension CalendarViewController : FSCalendarDataSource, FSCalendarDelegate{
 extension CalendarViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // 예상 위치2
+        /*
+         rootRef.child("scheduler").child(whatdate).observe(.childAdded) { (snapshot) in
+         // 서브트리 스케줄러의 자식인 whatdate의 자식으로 데이터가 추가될때 실행됨
+         // snapshot 변수로부터 해당 위치에 있는 데이터들을 가져오고 그것을 문자 배열 scheddata에 추가
+         let sched = snapshot.value as? String
+         
+         if let actualsched = sched{
+         self.scheddata.append(actualsched)
+         
+         self.table.reloadData()
+         }
+         }
+         */
         if(data[self.whatdate] == nil){
             return 0 // 딕셔너리 키값 존재 유무.
         }
         else{
             return data[self.whatdate]!.count
         }
+        // 데이터 베이스에서 가져와 그 데이터를 집어넣은 배열의 개수 만큼 section 설정
+        //return scheddata.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1",for:indexPath)
         cell.textLabel?.text = data[self.whatdate]![indexPath.row]
+        
+        // firebase가 제대로 실행되면 아래의 코드로 변경
+        // cell.textLabel?.text = scheddata[indexPath.row]
+        
         return cell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.whatdate
     }
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
         if(data[self.whatdate] == nil){
             return "0"
         }
         else{
             return "\(data[self.whatdate]!.count)"
         }
+        
+        //return "\(scheddata.count)"
     }
     
 }
