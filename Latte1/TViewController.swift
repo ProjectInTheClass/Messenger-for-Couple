@@ -11,10 +11,10 @@ import UIKit
 
 class TViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
-    var photo : [Any] = []
+    var photo : [String] = []
     var photoName : String = ""
     var photoHash : [Int] = []
-    
+    let ralbums = FirebaseDataService.instance.groupRef.child("albums")
     let picker = UIImagePickerController()
     
     /*func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -40,8 +40,17 @@ class TViewController: UIViewController {
         for i in 0...dataRecieved.count - 1{
             for j in 0...photo.count - 1{
                     if type(of:photo[j]) == String.self {
-                        if UIImage(named: photo[j] as! String) ==  dataRecieved[i]  {
+                        var dimage : UIImage? = nil
+                        if let data = try? Data(contentsOf: URL(string: photo[j])!) {
+                            if let image = UIImage(data: data) {
+                                    dimage = image
+                            }
+                        }
+                        print(dimage?.pngData() == dataRecieved[i].pngData())
+                        
+                        if dimage?.pngData()?.description ==  dataRecieved[i].pngData()?.description  {
                             photo.remove(at: j)
+                            print(photo.count)
                             break
                         }
                     }
@@ -57,12 +66,23 @@ class TViewController: UIViewController {
         for index in 0...albums.count - 1 {
             var date = photoName.components(separatedBy: "/")
             if String(albums[index].year) == date[0] && String(albums[index].month) == date[1]  && String(albums[index].day) == date[2] {
+               
+                if Int(date[1])! < 10 {
+                    date[1] = "0"+date[1]
+                }
+                if Int(date[2])! < 10 {
+                    date[2] = "0"+date[2]
+                }
                 if photo.count != 0 {
+                    ralbums.child("A"+date[0]+date[1]+date[2]).child("photo").setValue(photo)
                     albums[index].photo = photo
                     break
                 }
                 else {
+                    print(date[0]+date[1]+date[2])
+                    ralbums.child("A"+date[0]+date[1]+date[2]).removeValue()
                     albums.remove(at: index)
+                    print(albums.count)
                     break
                 }
                 //selectedPhotosName = albums[index].name
@@ -94,10 +114,18 @@ class TViewController: UIViewController {
         else {
             picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
             for i in 0..<photo.count {
-                
                 let imageView = UIImageView()
                 if type(of: photo[i]) == String.self {
-                    imageView.image = UIImage(named: photo[i] as! String)
+                    //let data = Data(contentsOf: URL(string: photo[i])!)
+                    //imageView.image = UIImage(data: data)
+                    if let data = try? Data(contentsOf: URL(string: photo[i])!) {
+                        if let image = UIImage(data: data) {
+                            DispatchQueue.main.async {
+                                imageView.image = image
+                            }
+                        }
+                    }
+                    //imageView.image = UIImage(contentsOfFile: photo[i])
                 }
                 else if type(of: photo[i]) == UIImage.self {
                     imageView.image = photo[i] as? UIImage
@@ -120,7 +148,13 @@ class TViewController: UIViewController {
                 
                 let imageView = UIImageView()
                 if type(of: photo[i]) == String.self {
-                    imageView.image = UIImage(named: photo[i] as! String)
+                    if let data = try? Data(contentsOf: URL(string: photo[i])!) {
+                        if let image = UIImage(data: data) {
+                            DispatchQueue.main.async {
+                                imageView.image = image
+                            }
+                        }
+                    }
                 }
                 else if type(of: photo[i]) == UIImage.self {
                     imageView.image = photo[i] as? UIImage

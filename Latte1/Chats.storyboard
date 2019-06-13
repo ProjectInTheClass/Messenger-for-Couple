@@ -51,7 +51,7 @@
     </string>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI6-Ld-Ox5">
-                                                    <rect key="frame" x="8" y="8" width="99" height="69"/>
+                                                    <rect key="frame" x="4" y="4" width="107" height="51"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -59,14 +59,14 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="aI6-Ld-Ox5" firstAttribute="leading" secondItem="UHv-lv-ze5" secondAttribute="leading" constant="8" id="AJ3-cG-lCC"/>
-                                            <constraint firstItem="nFc-lR-b2H" firstAttribute="leading" secondItem="UHv-lv-ze5" secondAttribute="leading" id="M9l-Uq-zru"/>
-                                            <constraint firstAttribute="trailing" secondItem="nFc-lR-b2H" secondAttribute="trailing" id="ek3-VA-wB6"/>
-                                            <constraint firstAttribute="bottom" secondItem="nFc-lR-b2H" secondAttribute="bottom" id="g17-pA-wiz"/>
-                                            <constraint firstItem="nFc-lR-b2H" firstAttribute="top" secondItem="UHv-lv-ze5" secondAttribute="top" id="hZZ-1p-UGh"/>
-                                            <constraint firstAttribute="bottom" secondItem="aI6-Ld-Ox5" secondAttribute="bottom" constant="8" id="nLP-zJ-MXF"/>
-                                            <constraint firstItem="aI6-Ld-Ox5" firstAttribute="top" secondItem="UHv-lv-ze5" secondAttribute="top" constant="8" id="oFm-wZ-qRG"/>
-                                            <constraint firstAttribute="trailing" secondItem="aI6-Ld-Ox5" secondAttribute="trailing" constant="8" id="sxQ-X7-k57"/>
+                                            <constraint firstAttribute="trailing" secondItem="nFc-lR-b2H" secondAttribute="trailing" id="1nY-kS-CBU"/>
+                                            <constraint firstAttribute="trailing" secondItem="aI6-Ld-Ox5" secondAttribute="trailing" constant="4" id="3sn-VD-94Z"/>
+                                            <constraint firstItem="nFc-lR-b2H" firstAttribute="leading" secondItem="UHv-lv-ze5" secondAttribute="leading" id="6Fg-2T-Ztz"/>
+                                            <constraint firstItem="nFc-lR-b2H" firstAttribute="top" secondItem="UHv-lv-ze5" secondAttribute="top" id="FPn-uE-axj"/>
+                                            <constraint firstItem="aI6-Ld-Ox5" firstAttribute="leading" secondItem="UHv-lv-ze5" secondAttribute="leading" constant="4" id="IVl-la-44q"/>
+                                            <constraint firstItem="aI6-Ld-Ox5" firstAttribute="top" secondItem="UHv-lv-ze5" secondAttribute="top" constant="4" id="NqZ-Fu-lGW"/>
+                                            <constraint firstAttribute="bottom" secondItem="nFc-lR-b2H" secondAttribute="bottom" id="k0N-OV-7l7"/>
+                                            <constraint firstAttribute="bottom" secondItem="aI6-Ld-Ox5" secondAttribute="bottom" constant="30" id="ueT-zn-IOD"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="messageImage" destination="nFc-lR-b2H" id="pUk-5m-X8t"/>

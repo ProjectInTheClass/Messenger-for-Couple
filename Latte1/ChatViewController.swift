@@ -109,15 +109,15 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     
     func setupChatCell(cell: ChatMessageCell, message: ChatMessage) {
         if message.fromUserId == FirebaseDataService.instance.currentUserUid {
-            cell.messageImage.image = UIImage(named: "message")
+            cell.messageImage.image = UIImage(named: "Me")
             cell.messageImage.autoresizingMask = UIView.AutoresizingMask.flexibleLeftMargin
             //cell.containerView.backgroundColor = UIColor.magenta
-            cell.textLabel.textColor = UIColor.white
+            cell.textLabel.textColor = UIColor.black
             //cell.containerViewRightAnchor?.isActive = true
             //cell.containerViewLeftAnchor?.isActive = false
         } else {
             //cell.containerView.backgroundColor = UIColor.lightGray
-            cell.messageImage.image = UIImage(named: "message")
+            cell.messageImage.image = UIImage(named: "You")
             cell.messageImage.autoresizingMask = UIView.AutoresizingMask.flexibleRightMargin
             cell.textLabel.textColor = UIColor.black
             //cell.containerViewRightAnchor?.isActive = false
