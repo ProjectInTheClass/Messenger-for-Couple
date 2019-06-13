@@ -29,7 +29,10 @@ class FirebaseDataService {
     let messageRef = baseRef.child("message")
     
     // 현재 접속중인 유저의 uid
+    
+    
     var currentUserUid: String? {
+        
         get {
             guard let uid = Auth.auth().currentUser?.uid else {
                 return nil

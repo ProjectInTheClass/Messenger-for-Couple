@@ -12,6 +12,7 @@ import Firebase
 class ChatMessageCell: UICollectionViewCell {
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var messageImage: UIImageView!
+    
     /*var containerViewWidthAnchor: NSLayoutConstraint?
     var containerViewRightAnchor: NSLayoutConstraint?
     var containerViewLeftAnchor: NSLayoutConstraint?
@@ -74,7 +75,7 @@ class ChatMessageCell: UICollectionViewCell {
 }
 
 class ChatViewController: UIViewController, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-  
+    
     var messages: [ChatMessage] = []
   
     
@@ -95,12 +96,14 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatCell", for: indexPath) as! ChatMessageCell
         let message = messages[indexPath.item]
     
-        cell.textLabel.text = message.text
+        cell.textLabel.text! = message.text
+
         setupChatCell(cell: cell, message: message)
         if message.text.characters.count > 0 {
             cell.sizeThatFits(measuredFrameHeightForEachMessage(message: message.text).size)
             cell.messageImage.sizeThatFits(measuredFrameHeightForEachMessage(message: message.text).size)
         }
+        print(cell.textLabel.text)
         return cell
     }
     
@@ -136,6 +139,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         fetchChatGroupList()
         // Do any additional setup after loading the view.
     }
+    
     func fetchChatGroupList() {
         if let uid = FirebaseDataService.instance.currentUserUid {
             

@@ -18,6 +18,7 @@ class AuthViewController: UIViewController {
     
     @IBAction func AuthButton(_ sender: Any) {
         doSignUp()
+        //performSegue(withIdentifier: "matching", sender: self)
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -53,7 +54,8 @@ extension AuthViewController{
             return
         }
         signUp(email: emailField.text!, password: passwordField.text!)
-        self.performSegue(withIdentifier: "authToconfirm", sender: self)
+        self.performSegue(withIdentifier: "matching", sender: self)
+        //self.performSegue(withIdentifier: "authToconfirm", sender: self)
         print("success register")
     }
     
@@ -78,6 +80,12 @@ extension AuthViewController{
                     }
                 }
             } else{
+                print(email.replacingOccurrences(of: ".", with: "-"))
+            FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserUid!).updateChildValues(["email":email.replacingOccurrences(of: ".", with: "-")])
+            FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserUid!).updateChildValues(["password":password])
+            FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserUid!).updateChildValues(["birthday":myBirthDate])
+            FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserUid!).updateChildValues(["loveday":ourLoveDate])
+                
                 print("회원가입 성공")
                 dump(user)
             }
