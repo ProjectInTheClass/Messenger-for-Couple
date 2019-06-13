@@ -187,7 +187,6 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     
     func fetchMessages() {
         if let groupId = self.groupKey {
-            
             let groupMessageRef = FirebaseDataService.instance.groupRef.child(groupId).child("messages")
             groupMessageRef.observe(.childAdded, with: { (snapshot) in
                 let messageId = snapshot.key

@@ -6,15 +6,21 @@ target 'Latte1' do
   use_frameworks!
   pod 'FSCalendar'
   # Pods for Latte1
-
+  
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Core'
+  pod 'Firebase/Storage'
+  
   target 'Latte1Tests' do
     inherit! :search_paths
     # Pods for testing
   end
-
+  
   target 'Latte1UITests' do
     inherit! :search_paths
     # Pods for testing
   end
-
+  
 end
