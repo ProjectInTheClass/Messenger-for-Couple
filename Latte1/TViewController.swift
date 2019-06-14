@@ -10,12 +10,14 @@ import UIKit
 //import Firebase
 
 class TViewController: UIViewController {
+    let myUid = FirebaseDataService.instance.currentUserEmail
     @IBOutlet weak var scrollView: UIScrollView!
     var photo : [String] = []
     var photoName : String = ""
     var photoHash : [Int] = []
-    let ralbums = FirebaseDataService.instance.groupRef.child("albums")
+    var ralbums = FirebaseDataService.instance.groupRef.child("albums")
     let picker = UIImagePickerController()
+    let storageRef = FirebaseDataService.instance.storage.reference()
     
     /*func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
      return photo.count
@@ -49,7 +51,20 @@ class TViewController: UIViewController {
                         print(dimage?.pngData() == dataRecieved[i].pngData())
                         
                         if dimage?.pngData()?.description ==  dataRecieved[i].pngData()?.description  {
+                    
+                            let file = photo[j].split(separator: "/")
+                            let name = file[file.count-1].split(separator: "?")[0]
+                            let real = FirebaseDataService.instance.currentUserUid! + "/" + name
+                            
+                                storageRef.child(real).delete { error in
+                                if let error = error {
+                                    // Uh-oh, an error occurred!
+                                } else {
+                                    // File deleted successfully
+                                }
+                            }
                             photo.remove(at: j)
+                            
                             print(photo.count)
                             break
                         }
@@ -113,12 +128,14 @@ class TViewController: UIViewController {
         }
         else {
             picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            
             for i in 0..<photo.count {
                 let imageView = UIImageView()
                 if type(of: photo[i]) == String.self {
                     //let data = Data(contentsOf: URL(string: photo[i])!)
                     //imageView.image = UIImage(data: data)
-                    if let data = try? Data(contentsOf: URL(string: photo[i])!) {
+                    print(URL(fileURLWithPath: photo[i]))
+                    if let data = try? Data(contentsOf: URL(fileURLWithPath: photo[i])) {
                         if let image = UIImage(data: data) {
                             DispatchQueue.main.async {
                                 imageView.image = image
@@ -142,7 +159,10 @@ class TViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        let groupName = FirebaseDataService.instance.userRef.child(myUid!).child("groups").child("groupname").observeSingleEvent(of: .value, with: {(snapshot) in
+            let dic = snapshot.value as! Dictionary<String, String>.Element
+            self.ralbums = FirebaseDataService.instance.groupRef.child(dic.value).child("albums")
+        })
             picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
             for i in 0..<photo.count {
                 

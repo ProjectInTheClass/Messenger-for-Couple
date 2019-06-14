@@ -195,6 +195,7 @@ class DViewController: UIViewController, UICollectionViewDataSource, UICollectio
             
             delete.append(cell.image!.image!)
         }
+            
         else {
             cell.layer.borderColor = nil
             cell.layer.borderWidth = 0

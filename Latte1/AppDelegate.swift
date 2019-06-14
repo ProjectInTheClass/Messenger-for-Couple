@@ -13,14 +13,16 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    //let ralbums = FirebaseDataService.instance.groupRef.child("albums")
     override init(){
-        FirebaseApp.configure();
+        
+       FirebaseApp.configure();
+        
+        
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //FirebaseApp.configure()
-        
         return true
     }
 

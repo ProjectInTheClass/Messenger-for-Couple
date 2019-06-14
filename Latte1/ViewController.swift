@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    let ralbums = FirebaseDataService.instance.groupRef.child("albums")
+    let myUid = FirebaseDataService.instance.currentUserEmail
+    
+    var ralbums = FirebaseDataService.instance.groupRef.child("albums")
     let storageRef = FirebaseDataService.instance.storage.reference()
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -28,12 +30,35 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         /*let year = albums.value(forKey: "year") as! String
          let month = albums.value(forKey: "month") as! String
          let day = albums.value(forKey: "day") as! String*/
+        //print(albums[indexPath.item])
         let year = String(albums[indexPath.item].year)
         let month = String(albums[indexPath.item].month)
         let day = String(albums[indexPath.item].day)
-        cell.label.text = year + "/" + month + "/" + day
+        
         cell.layer.borderColor = UIColor.brown.cgColor
         cell.layer.borderWidth = 1
+        let imageView = UIImageView()
+        if type(of: albums[indexPath.item].photo[0]) == String.self {
+            /*if let data = try? Data(contentsOf: URL(string: albums[indexPath.item].photo[0])!) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        cell.cellImage.image = image
+                    }
+                }
+            }*/
+            if let data = try? Data(contentsOf: URL(string: albums[indexPath.item].photo[0])!) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        cell.cellImage.image = image
+                    }
+                }
+            }
+            else {
+                cell.cellImage.image = nil
+            }
+        }
+        cell.label.text = year + "/" + month + "/" + day
+        //cell.cellImage.image = albums[indexPath.item].photo[0]
         
         return cell
     }
@@ -72,60 +97,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
-        print("Load")
-       
-        var photo : [String] = []
-        var year : [Int] = []
-        var month : [Int] = []
-        var day : [Int] = []
-        ralbums.observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            if let dict = snapshot.value as? Dictionary<String, AnyObject> {
-                
-                for (key, _) in dict {
-                    self.ralbums.child(key).observeSingleEvent(of: .value, with:{ (snapshot) in
-                        
-                        if let dic = snapshot.value as? Dictionary<String, Any> {
-                            
-                            
-                            for(dkey, _) in dic {
-                                
-                                if dkey  == "photo" {
-                                    self.ralbums.child(key).child(dkey).observeSingleEvent(of: .value, with: {(snapshot) in
-                                        
-                                        if let p = snapshot.value as? Array<String> {
-                                            photo = p
-                                            let nalbum = Album(year: year[0], month: month[0], day: day[0], photo: photo)
-                                            year.remove(at: 0)
-                                            month.remove(at: 0)
-                                            day.remove(at: 0)
-                                            //print(photo[0] as! String)
-                                            albums.append(nalbum)
-                                            //print(photo)*/
-                                        }
-                                    })
-                                    
-                                }
-                                if dkey == "year" {
-                                    year.append(dic[dkey] as! Int)
-                                }
-                                if dkey == "month" {
-                                    month.append(dic[dkey] as! Int)
-                                }
-                                if dkey == "day" {
-                                    day.append(dic[dkey] as! Int)
-                                }
-                            }
-                            
-                        }
-                        
-                    })
-                    
-                }
-            }
-            
+     
+        super.viewDidLoad()
+        let groupName = FirebaseDataService.instance.userRef.child(myUid!).child("groups").child("groupname").observeSingleEvent(of: .value, with: {(snapshot) in
+            let dic = snapshot.value as! Dictionary<String, String>.Element
+            self.ralbums = FirebaseDataService.instance.groupRef.child(dic.value).child("albums")
         })
-        print(albums.count)
+        //self.collectionview?.reloadData()
         for i in 0..<albums.count {
             for j in i+1..<albums.count {
                 if albums[i].year > albums[j].year {
@@ -145,8 +123,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 
             }
         }
-        super.viewDidLoad()
-        self.collectionview?.reloadData()
         self.label?.text = "No Album. Make your albums"
         picker.delegate = self
         if albums.count == 0 {
@@ -161,7 +137,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("Appear")
+        
         self.collectionview?.reloadData()
         if albums.count == 0 {
             self.label?.isEnabled = true
@@ -203,6 +179,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
         if let fileUrl = info[UIImagePickerController.InfoKey.imageURL] {
             //let image = info[UIImagePickerController.InfoKey.originalImage]
             let image = info[UIImagePickerController.InfoKey.imageURL]
@@ -213,77 +190,113 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             let dateTimeOriginal = exifDict.value(forKey: "DateTimeOriginal") as! String
             
             
-            let date = dateTimeOriginal.components(separatedBy: " ")[0].components(separatedBy: ":")
+            var date = dateTimeOriginal.components(separatedBy: " ")[0].components(separatedBy: ":")
+            var downloadURL : URL? = nil
             
-            for index in 0..<albums.count {
-                //print("index : " + String(index))
-                
-                if Int(date[0]) == albums[index].year && Int(date[1]) == albums[index].month && Int(date[2]) == albums[index].day {
-                    albums[index].photo.append((image as! URL).absoluteString)
-                    self.ralbums.child("A"+date[0]+date[1]+date[2]).child("photo").updateChildValues([String(albums[index].photo.count):(image as! URL).absoluteString])
-                    /*let uploadTask = storageRef.putFile(from: image as! URL, metadata: nil) { metadata, error in
-                        guard let metadata = metadata else {
-                            // Uh-oh, an error occurred!
-                            return
-                        }
-                        // Metadata contains file metadata such as size, content-type.
-                        
-                        // You can also access to download URL after upload.
-                        
-                    }*/
-                    //print(uploadTask)
-                
-                    break
+            //print((image as! URL))
+            var imagepath = (image as! URL).absoluteString.split(separator: "/")
+            let imagename = imagepath[imagepath.count-1]
+            let rimagename = FirebaseDataService.instance.currentUserUid! + "/" + imagename
+            let imageRef = storageRef.child(rimagename)
+            imageRef.putFile(from: (image as! URL), metadata: nil) { (metadata, error) in
+                guard error == nil else {
+                    print("put File error :", error);
+                    return
                 }
-                    
-                else if index == albums.count-1 {
-                    let pnew : [String] = [(image as! URL).absoluteString]
-                    let new = Album(year: Int(date[0])!, month:Int(date[1])!, day:Int(date[2])!, photo: pnew)
-                    
-                    albums.append(new)
-                    ralbums.child("A"+date[0]+date[1]+date[2]).child("year").setValue(Int(date[0])!)
-                    ralbums.child("A"+date[0]+date[1]+date[2]).child("month").setValue(Int(date[1])!)
-                    ralbums.child("A"+date[0]+date[1]+date[2]).child("day").setValue(Int(date[2])!)
-                    ralbums.child("A"+date[0]+date[1]+date[2]).child("photo").setValue(pnew)
-                    
-      
-                }
+                print("upload success")
                 
-            }
-            if albums.count == 0 {
-                let pnew : [String] = [image! as! String]
-                let new = Album(year: Int(date[0])!, month:Int(date[1])!, day:Int(date[2])!, photo: pnew)
-                albums.append(new)
-                ralbums.child("A"+date[0]+date[1]+date[2]).child("year").setValue(Int(date[0])!)
-                ralbums.child("A"+date[0]+date[1]+date[2]).child("month").setValue(Int(date[1])!)
-                ralbums.child("A"+date[0]+date[1]+date[2]).child("day").setValue(Int(date[2])!)
-                ralbums.child("A"+date[0]+date[1]+date[2]).child("photo").setValue(new)
-                
-                
-            }
-            for i in 0..<albums.count {
-                for j in i+1..<albums.count {
-                    if albums[i].year > albums[j].year {
-                        albums.swapAt(i, j)
+                imageRef.downloadURL(completion: { (url, error) in
+                    guard error == nil else {
+                        print("download url error :", error)
+                        return
                     }
-                    else if albums[i].year == albums[i].year {
-                        if albums[i].month > albums[j].month {
-                            albums.swapAt(i, j)
+                    print("download url :", url)
+                    downloadURL = url!
+                    // Get the download URL for 'images/stars.jpg'
+                    for index in 0..<albums.count {
+                        //print("index : " + String(index))
+                        
+                        if Int(date[0]) == albums[index].year && Int(date[1]) == albums[index].month && Int(date[2]) == albums[index].day {
+                            albums[index].photo.append((image as! URL).absoluteString)
+                            self.ralbums.child("A"+date[0]+date[1]+date[2]).child("photo").updateChildValues([String(albums[index].photo.count-1): downloadURL!.absoluteString])
+                            date = []
+                            //print(image as! URL)
+                            
+                            //print(uploadTask)
+                            
+                            break
                         }
                             
-                        else if albums[i].month == albums[j].month {
-                            if albums[i].day > albums[j].day {
+                        else if index == albums.count-1 {
+                            print(downloadURL)
+                            let pnew : [String] = [(downloadURL!.absoluteString)]
+                            let new = Album(year: Int(date[0])!, month:Int(date[1])!, day:Int(date[2])!, photo: pnew)
+                            
+                            albums.append(new)
+                            self.ralbums.child("A"+date[0]+date[1]+date[2]).child("year").setValue(Int(date[0])!)
+                            self.ralbums.child("A"+date[0]+date[1]+date[2]).child("month").setValue(Int(date[1])!)
+                            self.ralbums.child("A"+date[0]+date[1]+date[2]).child("day").setValue(Int(date[2])!)
+                            self.ralbums.child("A"+date[0]+date[1]+date[2]).child("photo").setValue(pnew)
+                            
+                            /*storageRef.child("common.jpeg").downloadURL { url, error in
+                             if let error = error {
+                             // Handle any errors
+                             } else {
+                             print(url)
+                             // Get the download URL for 'images/stars.jpg'
+                             }
+                             }*/
+                        }
+                        
+                    }
+                    if albums.count == 0 {
+                        let pnew : [String] = [(downloadURL?.absoluteString)!]
+                        let new = Album(year: Int(date[0])!, month:Int(date[1])!, day:Int(date[2])!, photo: pnew)
+                        albums.append(new)
+                        self.ralbums.child("A"+date[0]+date[1]+date[2]).child("year").setValue(Int(date[0])!)
+                        self.ralbums.child("A"+date[0]+date[1]+date[2]).child("month").setValue(Int(date[1])!)
+                        self.ralbums.child("A"+date[0]+date[1]+date[2]).child("day").setValue(Int(date[2])!)
+                        self.ralbums.child("A"+date[0]+date[1]+date[2]).child("photo").setValue(new)
+                        
+                        
+                    }
+                    for i in 0..<albums.count {
+                        for j in i+1..<albums.count {
+                            if albums[i].year > albums[j].year {
                                 albums.swapAt(i, j)
                             }
+                            else if albums[i].year == albums[i].year {
+                                if albums[i].month > albums[j].month {
+                                    albums.swapAt(i, j)
+                                }
+                                    
+                                else if albums[i].month == albums[j].month {
+                                    if albums[i].day > albums[j].day {
+                                        albums.swapAt(i, j)
+                                    }
+                                }
+                            }
+                            
                         }
                     }
+                    self.collectionview.reloadData()
                     
-                }
+                
+
+                })
+                
+
+                // Metadata contains file metadata such as size, content-type.
+
+                // You can also access to download URL after upload.
             }
-           self.collectionview.reloadData()
+            //let uploadTask = storageRef.putFile(from: image as! URL)
+          
+            
+ 
+            
             
         }
-        
         dismiss(animated: true, completion: nil)
     }
 }
