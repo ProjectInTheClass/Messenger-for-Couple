@@ -43,9 +43,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yrw-Bg-yhL">
-                                                    <rect key="frame" x="0.0" y="53" width="127" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yrw-Bg-yhL">
+                                                    <rect key="frame" x="5" y="100" width="117" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -57,6 +56,12 @@
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Yrw-Bg-yhL" secondAttribute="trailing" constant="5" id="1qy-BW-OJR"/>
+                                            <constraint firstItem="Yrw-Bg-yhL" firstAttribute="top" secondItem="WyT-fG-QXX" secondAttribute="top" constant="100" id="DR8-j7-Mb2"/>
+                                            <constraint firstItem="Yrw-Bg-yhL" firstAttribute="leading" secondItem="WyT-fG-QXX" secondAttribute="leading" constant="5" id="Lnk-DU-IEr"/>
+                                            <constraint firstAttribute="bottom" secondItem="Yrw-Bg-yhL" secondAttribute="bottom" constant="10" id="Lrr-Yc-3Bj"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="cellImage" destination="2bg-LM-gyu" id="iB2-5G-Kpq"/>
                                             <outlet property="label" destination="Yrw-Bg-yhL" id="S0s-MY-yIP"/>

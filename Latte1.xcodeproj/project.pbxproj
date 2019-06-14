@@ -23,6 +23,8 @@
 		0E08E2E922B2A28A000EADCB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2E822B2A289000EADCB /* LoginViewController.swift */; };
 		0E08E2EB22B2A290000EADCB /* MatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2EA22B2A290000EADCB /* MatchingViewController.swift */; };
 		0E08E2ED22B2A9D6000EADCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E08E2EC22B2A9D0000EADCB /* GoogleService-Info.plist */; };
+		0E08E2EF22B38AE6000EADCB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2EE22B38AE6000EADCB /* MainViewController.swift */; };
+		0E63CC1122B3D2FE00BCA55F /* Chat2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E63CC1022B3D2FE00BCA55F /* Chat2ViewController.swift */; };
 		0ED3D5F32282AB2100EB4616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */; };
 		0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F42282AB2100EB4616 /* ViewController.swift */; };
 		0ED3D5FA2282AB2400EB4616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F92282AB2400EB4616 /* Assets.xcassets */; };
@@ -75,6 +77,8 @@
 		0E08E2E822B2A289000EADCB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0E08E2EA22B2A290000EADCB /* MatchingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingViewController.swift; sourceTree = "<group>"; };
 		0E08E2EC22B2A9D0000EADCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0E08E2EE22B38AE6000EADCB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0E63CC1022B3D2FE00BCA55F /* Chat2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat2ViewController.swift; sourceTree = "<group>"; };
 		0ED3D5EF2282AB2100EB4616 /* Latte1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Latte1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ED3D5F42282AB2100EB4616 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -169,7 +173,9 @@
 				0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */,
 				0ED3D5F42282AB2100EB4616 /* ViewController.swift */,
 				AF25C9E9229FDE3000340ACA /* Main.storyboard */,
+				0E08E2EE22B38AE6000EADCB /* MainViewController.swift */,
 				AFF275D12297E1AB00696394 /* Chats.storyboard */,
+				0E63CC1022B3D2FE00BCA55F /* Chat2ViewController.swift */,
 				AFF275D32297E1B600696394 /* Album.storyboard */,
 				AFF275D52297E1BF00696394 /* Calendar.storyboard */,
 				AFF275D72297E1C600696394 /* Days.storyboard */,
@@ -459,9 +465,11 @@
 				0E08E2E122B2A268000EADCB /* ConfirmViewController.swift in Sources */,
 				0E08E2D922B2A245000EADCB /* AuthViewController.swift in Sources */,
 				0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */,
+				0E08E2EF22B38AE6000EADCB /* MainViewController.swift in Sources */,
 				0E08E2DB22B2A24E000EADCB /* CalendarModalViewController.swift in Sources */,
 				0E08E2E922B2A28A000EADCB /* LoginViewController.swift in Sources */,
 				0E08E2EB22B2A290000EADCB /* MatchingViewController.swift in Sources */,
+				0E63CC1122B3D2FE00BCA55F /* Chat2ViewController.swift in Sources */,
 				0E08E2CF22B2A216000EADCB /* DViewController.swift in Sources */,
 				0E08E2E322B2A275000EADCB /* FirebaseDataService.swift in Sources */,
 				0E08E2D522B2A23C000EADCB /* AuthDateViewController.swift in Sources */,

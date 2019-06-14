@@ -196,7 +196,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             //print((image as! URL))
             var imagepath = (image as! URL).absoluteString.split(separator: "/")
             let imagename = imagepath[imagepath.count-1]
-            let rimagename = FirebaseDataService.instance.currentUserUid! + "/" + imagename
+            let rimagename = FirebaseDataService.instance.currentUserEmail! + "/" + imagename
             let imageRef = storageRef.child(rimagename)
             imageRef.putFile(from: (image as! URL), metadata: nil) { (metadata, error) in
                 guard error == nil else {

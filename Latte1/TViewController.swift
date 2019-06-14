@@ -54,7 +54,7 @@ class TViewController: UIViewController {
                     
                             let file = photo[j].split(separator: "/")
                             let name = file[file.count-1].split(separator: "?")[0]
-                            let real = FirebaseDataService.instance.currentUserUid! + "/" + name
+                            let real = FirebaseDataService.instance.currentUserEmail! + "/" + name
                             
                                 storageRef.child(real).delete { error in
                                 if let error = error {

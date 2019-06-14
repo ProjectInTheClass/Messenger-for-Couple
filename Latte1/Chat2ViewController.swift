@@ -45,7 +45,7 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     
     func setupChatCell(cell: Chat2MessageCell, message: ChatMessage) {
-        if message.fromUserId == FirebaseDataService.instance.currentUserUid {
+        if message.fromUserId == FirebaseDataService.instance.currentUserEmail {
             cell.messageImage2.image = UIImage(named: "Me")
             cell.messageImage2.autoresizingMask = UIView.AutoresizingMask.flexibleLeftMargin
             //cell.containerView.backgroundColor = UIColor.magenta
@@ -101,7 +101,7 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func fetchChatGroupList() {
-        if let uid = FirebaseDataService.instance.currentUserUid {
+        if let uid = FirebaseDataService.instance.currentUserEmail {
             
             FirebaseDataService.instance.userRef.child(uid).child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
                 
@@ -131,7 +131,7 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
         didSet {
             if let key = groupKey {
                 fetchMessages()
-                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserUid!).child("groups").child("groupname").observeSingleEvent(of: .value, with: { (snapshot) in
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).child("groups").child("groupname").observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     if let data = snapshot.value as? String {
                         
@@ -186,7 +186,7 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
      */
     @IBAction func sendButton(_ sender: Any) {
         let ref = FirebaseDataService.instance.messageRef.childByAutoId()
-        guard let fromUserId = FirebaseDataService.instance.currentUserUid else {
+        guard let fromUserId = FirebaseDataService.instance.currentUserEmail else {
             return
         }
         

@@ -9,8 +9,8 @@
 import Foundation
 import Firebase
 
-
 fileprivate let baseRef = Database.database().reference()
+
 
 class FirebaseDataService {
     static let instance = FirebaseDataService()
@@ -31,10 +31,10 @@ class FirebaseDataService {
     // 현재 접속중인 유저의 uid
     
     
-    var currentUserUid: String? {
+    var currentUserEmail: String? {
         
         get {
-            guard let uid = Auth.auth().currentUser?.uid else {
+            guard let uid = Auth.auth().currentUser?.email else {
                 return nil
             }
             return uid

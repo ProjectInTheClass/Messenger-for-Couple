@@ -147,7 +147,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UICollectionVie
                 
                 if let dict = snapshot.value as? Dictionary<String, String> {
                     for (key, _) in dict {
-                        if key == "with" {
+                        if key == "groupname" {
                             continue
                         }
                         FirebaseDataService.instance.groupRef.child(key).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -171,7 +171,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         didSet {
             if let key = groupKey {
                 fetchMessages()
-                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserUid!).child("groups").child("with").observeSingleEvent(of: .value, with: { (snapshot) in
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserUid!).child("groups").child("groupname").observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     if let data = snapshot.value as? String {
                         
