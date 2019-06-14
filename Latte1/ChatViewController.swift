@@ -108,7 +108,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     func setupChatCell(cell: ChatMessageCell, message: ChatMessage) {
-        if message.fromUserId == FirebaseDataService.instance.currentUserUid {
+        if message.fromUserId == FirebaseDataService.instance.currentUserEmail {
             cell.messageImage.image = UIImage(named: "Me")
             cell.messageImage.autoresizingMask = UIView.AutoresizingMask.flexibleLeftMargin
             //cell.containerView.backgroundColor = UIColor.magenta
@@ -141,13 +141,13 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     func fetchChatGroupList() {
-        if let uid = FirebaseDataService.instance.currentUserUid {
+        if let uid = FirebaseDataService.instance.currentUserEmail {
             
             FirebaseDataService.instance.userRef.child(uid).child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
                 
                 if let dict = snapshot.value as? Dictionary<String, String> {
                     for (key, _) in dict {
-                        if key == "groupname" {
+                        if key == "with" {
                             continue
                         }
                         FirebaseDataService.instance.groupRef.child(key).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -171,7 +171,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         didSet {
             if let key = groupKey {
                 fetchMessages()
-                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserUid!).child("groups").child("groupname").observeSingleEvent(of: .value, with: { (snapshot) in
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).child("groups").child("with").observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     if let data = snapshot.value as? String {
                         
@@ -224,7 +224,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     */
     @IBAction func sendButton(_ sender: Any) {
         let ref = FirebaseDataService.instance.messageRef.childByAutoId()
-        guard let fromUserId = FirebaseDataService.instance.currentUserUid else {
+        guard let fromUserId = FirebaseDataService.instance.currentUserEmail else {
             return
         }
         

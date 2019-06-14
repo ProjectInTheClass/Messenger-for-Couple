@@ -10,7 +10,7 @@ import UIKit
 //import Firebase
 
 class TViewController: UIViewController {
-    let myUid = FirebaseDataService.instance.currentUserEmail
+    let myUid = FirebaseDataService.instance.currentUserEmail!.replacingOccurrences(of: ".", with: "-")
     @IBOutlet weak var scrollView: UIScrollView!
     var photo : [String] = []
     var photoName : String = ""
@@ -159,7 +159,7 @@ class TViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let groupName = FirebaseDataService.instance.userRef.child(myUid!).child("groups").child("groupname").observeSingleEvent(of: .value, with: {(snapshot) in
+        let groupName = FirebaseDataService.instance.userRef.child(myUid).child("groups").child("groupname").observeSingleEvent(of: .value, with: {(snapshot) in
             let dic = snapshot.value as! Dictionary<String, String>.Element
             self.ralbums = FirebaseDataService.instance.groupRef.child(dic.value).child("albums")
         })

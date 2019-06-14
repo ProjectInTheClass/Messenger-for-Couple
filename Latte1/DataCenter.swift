@@ -45,7 +45,6 @@ var Email: String = ""
 var Password: String = ""
 var myBirthDate: String = ""
 var ourLoveDate: String = ""
-var myUid : String = ""
 
 //CHAT
 // 말풍선 하나

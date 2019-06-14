@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    let myUid = FirebaseDataService.instance.currentUserEmail
+    let myUid = FirebaseDataService.instance.currentUserEmail?.replacingOccurrences(of: ".", with: "-")
     
     var ralbums = FirebaseDataService.instance.groupRef.child("albums")
     let storageRef = FirebaseDataService.instance.storage.reference()

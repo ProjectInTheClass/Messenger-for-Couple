@@ -45,7 +45,7 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     
     func setupChatCell(cell: Chat2MessageCell, message: ChatMessage) {
-        if message.fromUserId == FirebaseDataService.instance.currentUserEmail {
+        if message.fromUserId == FirebaseDataService.instance.currentUserEmail?.replacingOccurrences(of: ".", with: "-") {
             cell.messageImage2.image = UIImage(named: "Me")
             cell.messageImage2.autoresizingMask = UIView.AutoresizingMask.flexibleLeftMargin
             //cell.containerView.backgroundColor = UIColor.magenta
@@ -101,16 +101,16 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func fetchChatGroupList() {
-        if let uid = FirebaseDataService.instance.currentUserEmail {
+        if let uid = FirebaseDataService.instance.currentUserEmail?.replacingOccurrences(of: ".", with: "-") {
             
             FirebaseDataService.instance.userRef.child(uid).child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
                 
                 if let dict = snapshot.value as? Dictionary<String, String> {
                     for (key, _) in dict {
                         if key == "groupname" {
-                            continue
+                            self.groupKey = dict[key]
                         }
-                        FirebaseDataService.instance.groupRef.child(key).observeSingleEvent(of: .value, with: { (snapshot) in
+                        //FirebaseDataService.instance.groupRef.child(key).observeSingleEvent(of: .value, with: { (snapshot) in
                             /*print(snapshot)
                              if let data = snapshot.value as? Dictionary<String, AnyObject> {
                              let group = Group(key: key, data: data)
@@ -120,8 +120,8 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
                              
                              })
                              }*/
-                            self.groupKey = snapshot.key
-                        })
+                            
+                        //})
                     }
                 }
             })
@@ -131,7 +131,7 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
         didSet {
             if let key = groupKey {
                 fetchMessages()
-                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).child("groups").child("groupname").observeSingleEvent(of: .value, with: { (snapshot) in
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!.replacingOccurrences(of: ".", with: "-")).child("groups").child("match").observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     if let data = snapshot.value as? String {
                         
@@ -186,7 +186,7 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
      */
     @IBAction func sendButton(_ sender: Any) {
         let ref = FirebaseDataService.instance.messageRef.childByAutoId()
-        guard let fromUserId = FirebaseDataService.instance.currentUserEmail else {
+        guard let fromUserId = FirebaseDataService.instance.currentUserEmail?.replacingOccurrences(of: ".", with: "-") else {
             return
         }
         

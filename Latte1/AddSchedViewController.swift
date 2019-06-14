@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import FirebaseAuth
 import FirebaseDatabase
 
 class AddSchedViewController: UIViewController {
     var datevalue : String!
     var schedstring : String!
-    //var rootRef : DatabaseReference!
+    var rootRef : DatabaseReference!
+    var curruseruid : String!
     @IBOutlet weak var DateLabel: UILabel!
     
     @IBOutlet weak var SchedText: UITextField!
@@ -21,11 +23,13 @@ class AddSchedViewController: UIViewController {
         super.viewDidLoad()
         // 일정을 추가할 날짜를 Label로 보여주기
         DateLabel.text = datevalue
-        // rootRef = Database.database().reference()
+        
+        rootRef = Database.database().reference()
+        curruseruid = Auth.auth().currentUser?.uid
         // Do any additional setup after loading the view.
     }
     
-
+    
     @IBAction func TouchCancel(_ sender: Any) {
         // 취소버튼을 누르면 그냥 이전 페이지로 되돌아감
         dismiss(animated: true, completion: nil)
@@ -42,20 +46,12 @@ class AddSchedViewController: UIViewController {
             //"schedule" : 일정이 저장되어 있는 서브트리 명
             // datevalue : 위의 서브트리에서 추가하려는 날짜의 서브트리로 이동하여 일정 저장.ㄴ
             
-            // 데이터베이스에 잘 추가되는지 확인해보기
-            // rootRef.child("schedule").child(datevalue).childByAutoId().setValue(schedstring)
+            // 데이터베이스에 잘 추가되는지 확인해보기 -> 날짜 및 uid 별로 잘 추가된다.
+            rootRef.child("schedule").child(datevalue).child(curruseruid).childByAutoId().setValue(schedstring)
+            
         }
         // 이전 화면으로 되돌아 가기.
         dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

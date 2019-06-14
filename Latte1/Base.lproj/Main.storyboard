@@ -191,10 +191,10 @@
             </objects>
             <point key="canvasLocation" x="-1047.2" y="903.59820089955031"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="6bv-hX-xC0">
             <objects>
-                <tabBarController id="fz3-ab-Iug" customClass="MainViewController" customModule="Latte1" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="fz3-ab-Iug" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KnN-Gn-hqt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -475,6 +475,6 @@
         <image name="like" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fYf-de-rNm"/>
+        <segue reference="Zf6-fT-Grp"/>
     </inferredMetricsTieBreakers>
 </document>

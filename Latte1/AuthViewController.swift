@@ -81,10 +81,10 @@ extension AuthViewController{
                 }
             } else{
                 print(email.replacingOccurrences(of: ".", with: "-"))
-            FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserUid!).updateChildValues(["email":email.replacingOccurrences(of: ".", with: "-")])
-            FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserUid!).updateChildValues(["password":password])
-            FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserUid!).updateChildValues(["birthday":myBirthDate])
-            FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserUid!).updateChildValues(["loveday":ourLoveDate])
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["email":email.replacingOccurrences(of: ".", with: "-")])
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["password":password])
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["birthday":myBirthDate])
+            FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["loveday":ourLoveDate])
                 
                 print("회원가입 성공")
                 dump(user)
