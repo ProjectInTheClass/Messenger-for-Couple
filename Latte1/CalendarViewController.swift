@@ -8,19 +8,23 @@
 
 import UIKit
 import FSCalendar
+import FirebaseAuth
 import FirebaseDatabase
 
 class CalendarViewController: UIViewController {
-
+    
+    @IBOutlet weak var showRealTerm: UILabel!
+    
+    @IBOutlet weak var SchedTable: UITableView!
     // 실시간 데이터베이스 root 참조 변수.
     var rootRef : DatabaseReference!
-    
+    var curruseruid : String!
     var dateFormatter = DateFormatter()
     fileprivate weak var calendar : FSCalendar!
-    var table : UITableView!
+    //var table : UITableView!
     var whatdate : String!
-    var data : [String:[String]] = ["2019년05월15일":["영화"],"2019년05월19일":["카페","영화"],"2019년05월24일":["2박3일부산"],"2019년05월31일":["공연","영화"]]
     var scheddata = [String]()
+    var datestr = "2019년03월22일"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +41,11 @@ class CalendarViewController: UIViewController {
         //Calendar cell appearence.
         calendar.appearance.headerTitleColor = UIColor.brown
         calendar.appearance.todayColor = UIColor.lightGray
-        //calendar.appearance.titleDefaultColor = UIColor.green
-        //calendar.appearance.subtitleDefaultColor = UIColor.green
+
         calendar.appearance.titleDefaultColor = UIColor.black
-        
-        let table = UITableView(frame: CGRect(x:50, y: 550,width:320,height:200))
-        
-        table.dataSource = self
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "Cell1")
+
+        SchedTable.dataSource = self
+        SchedTable.delegate = self
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
@@ -52,39 +53,44 @@ class CalendarViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy년MM월dd일"
         self.whatdate = dateFormatter.string(from: Date())
         
+        let startDate = dateFormatter.date(from: datestr)!
+        let endDate = dateFormatter.date(from:self.whatdate)!
+        let interval = endDate.timeIntervalSince(startDate)+1
+        let days = Int(interval / 86400)
+        
+        self.showRealTerm.text = "실제로 사귄지 \(days)일!!"
         view.addSubview(calendar)
-        view.addSubview(table)
-
+        //view.addSubview(table)
+        
         self.dateFormatter = dateFormatter
         self.calendar = calendar
-        self.table = table
+        //self.table = table
         // Do any additional setup after loading the view.
         
         // 데이터 베이스 참조 연결
         rootRef = Database.database().reference()
+        curruseruid = Auth.auth().currentUser?.uid
         // 여기 위치가 맞을까???
-    
+        
         // 예상 위치1
-        /*
-        rootRef.child("scheduler").child(whatdate).observe(.childAdded) { (snapshot) in
-            // 서브트리 스케줄러의 자식인 whatdate의 자식으로 데이터가 추가될때 실행됨
-            // snapshot 변수로부터 해당 위치에 있는 데이터들을 가져오고 그것을 문자 배열 scheddata에 추가
-            let sched = snapshot.value as? String
-            
-            if let actualsched = sched{
-                self.scheddata.append(actualsched)
-                
-                self.table.reloadData()
+        
+        rootRef.child("schedule").child(whatdate).child(curruseruid).observeSingleEvent(of: .value) { (snapshot) in
+            //print("현재 날짜1 = "+self.whatdate)
+            self.scheddata.removeAll()
+            let snapchild = snapshot.children
+            while let rest = snapchild.nextObject() as? DataSnapshot{
+                let input = rest.value as! String
+                self.scheddata.append(input)
             }
+            self.SchedTable.reloadData()
         }
-         */
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let calendarModal = segue.destination as? AddSchedViewController else {return}
-        calendarModal.datevalue = self.whatdate;
+        calendarModal.datevalue = self.whatdate
     }
- 
+    
 }
 extension CalendarViewController : FSCalendarDataSource, FSCalendarDelegate{
     
@@ -98,62 +104,52 @@ extension CalendarViewController : FSCalendarDataSource, FSCalendarDelegate{
         // 그 후 올바른 설정인지 확인 후 아래의 테이블 뷰에 데이터 삽입.
         let whatdate = dateFormatter.string(from:date)
         self.whatdate = whatdate
-        self.table.reloadData()
-        print("Date is "+whatdate )
+        let startDate = dateFormatter.date(from: datestr)!
+        let endDate = dateFormatter.date(from:self.whatdate)!
+        let interval = endDate.timeIntervalSince(startDate)+1
+        let days = Int(interval / 86400)
+        
+        self.showRealTerm.text = "실제로 사귄지 \(days)일!!"
+        //print("이날은 실.제.로 사귄지 \(days)일 되는날!")
+        self.SchedTable.reloadData()
+        //print("Date is "+whatdate )
         
     }
 }
 
-extension CalendarViewController: UITableViewDataSource {
-    
+extension CalendarViewController: UITableViewDataSource ,UITableViewDelegate{
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // 예상 위치2
-        /*
-         rootRef.child("scheduler").child(whatdate).observe(.childAdded) { (snapshot) in
-         // 서브트리 스케줄러의 자식인 whatdate의 자식으로 데이터가 추가될때 실행됨
-         // snapshot 변수로부터 해당 위치에 있는 데이터들을 가져오고 그것을 문자 배열 scheddata에 추가
-         let sched = snapshot.value as? String
-         
-         if let actualsched = sched{
-         self.scheddata.append(actualsched)
-         
-         self.table.reloadData()
-         }
-         }
-         */
-        if(data[self.whatdate] == nil){
-            return 0 // 딕셔너리 키값 존재 유무.
-        }
-        else{
-            return data[self.whatdate]!.count
+        //self.scheddata.removeAll()
+        
+        rootRef.child("schedule").child(whatdate).child(curruseruid).observeSingleEvent(of: .value) { (snapshot) in
+            //print("현재 날짜2 = "+self.whatdate)
+            self.scheddata.removeAll()
+            let snapchild = snapshot.children
+            while let rest = snapchild.nextObject() as? DataSnapshot{
+                let input = rest.value as! String
+                self.scheddata.append(input)
+            }
+            self.SchedTable.reloadData()
         }
         // 데이터 베이스에서 가져와 그 데이터를 집어넣은 배열의 개수 만큼 section 설정
-        //return scheddata.count
+        return scheddata.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1",for:indexPath)
-        cell.textLabel?.text = data[self.whatdate]![indexPath.row]
-        
-        // firebase가 제대로 실행되면 아래의 코드로 변경
-        // cell.textLabel?.text = scheddata[indexPath.row]
-        
+        let cell = SchedTable.dequeueReusableCell(withIdentifier: "SchedCell",for:indexPath)
+        cell.textLabel?.text = scheddata[indexPath.row]
+        cell.backgroundColor = UIColor.white
         return cell
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        //tableView.sectionIndexColor = UIColor.blue
         return self.whatdate
     }
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        
-        if(data[self.whatdate] == nil){
-            return "0"
-        }
-        else{
-            return "\(data[self.whatdate]!.count)"
-        }
-        
-        //return "\(scheddata.count)"
+        return "\(scheddata.count)"
     }
-    
 }
 

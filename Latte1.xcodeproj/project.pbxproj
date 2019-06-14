@@ -14,7 +14,6 @@
 		0E08E2D522B2A23C000EADCB /* AuthDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2D422B2A23C000EADCB /* AuthDateViewController.swift */; };
 		0E08E2D822B2A245000EADCB /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2D622B2A245000EADCB /* AViewController.swift */; };
 		0E08E2D922B2A245000EADCB /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2D722B2A245000EADCB /* AuthViewController.swift */; };
-		0E08E2DB22B2A24E000EADCB /* CalendarModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2DA22B2A24D000EADCB /* CalendarModalViewController.swift */; };
 		0E08E2DD22B2A255000EADCB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2DC22B2A255000EADCB /* ChatViewController.swift */; };
 		0E08E2E122B2A268000EADCB /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2E022B2A268000EADCB /* ConfirmViewController.swift */; };
 		0E08E2E322B2A275000EADCB /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E2E222B2A275000EADCB /* FirebaseDataService.swift */; };
@@ -66,7 +65,6 @@
 		0E08E2D422B2A23C000EADCB /* AuthDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthDateViewController.swift; sourceTree = "<group>"; };
 		0E08E2D622B2A245000EADCB /* AViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
 		0E08E2D722B2A245000EADCB /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		0E08E2DA22B2A24D000EADCB /* CalendarModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarModalViewController.swift; sourceTree = "<group>"; };
 		0E08E2DC22B2A255000EADCB /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		0E08E2E022B2A268000EADCB /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		0E08E2E222B2A275000EADCB /* FirebaseDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
@@ -174,8 +172,8 @@
 				AFF275D52297E1BF00696394 /* Calendar.storyboard */,
 				AFF275D72297E1C600696394 /* Days.storyboard */,
 				0E08E2D022B2A22A000EADCB /* AddSchedViewController.swift */,
+				51B5A7E022A10D24004611E3 /* CalendarViewController.swift */,
 				0E08E2D722B2A245000EADCB /* AuthViewController.swift */,
-				0E08E2DA22B2A24D000EADCB /* CalendarModalViewController.swift */,
 				0E08E2D622B2A245000EADCB /* AViewController.swift */,
 				0E08E2E422B2A27A000EADCB /* DaysViewController.swift */,
 				0E08E2E822B2A289000EADCB /* LoginViewController.swift */,
@@ -192,7 +190,6 @@
 				0E02A87A228474B100B26611 /* DataCenter.swift */,
 				0ED3D5FE2282AB2400EB4616 /* Info.plist */,
 				0ED3D5FB2282AB2400EB4616 /* LaunchScreen.storyboard */,
-				51B5A7E022A10D24004611E3 /* CalendarViewController.swift */,
 			);
 			path = Latte1;
 			sourceTree = "<group>";
@@ -459,7 +456,6 @@
 				0E08E2E122B2A268000EADCB /* ConfirmViewController.swift in Sources */,
 				0E08E2D922B2A245000EADCB /* AuthViewController.swift in Sources */,
 				0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */,
-				0E08E2DB22B2A24E000EADCB /* CalendarModalViewController.swift in Sources */,
 				0E08E2E922B2A28A000EADCB /* LoginViewController.swift in Sources */,
 				0E08E2EB22B2A290000EADCB /* MatchingViewController.swift in Sources */,
 				0E08E2CF22B2A216000EADCB /* DViewController.swift in Sources */,
