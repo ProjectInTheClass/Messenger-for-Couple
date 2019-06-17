@@ -131,11 +131,12 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
         didSet {
             if let key = groupKey {
                 fetchMessages()
-                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!.replacingOccurrences(of: ".", with: "-")).child("groups").child("match").observeSingleEvent(of: .value, with: { (snapshot) in
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!.replacingOccurrences(of: ".", with: "-")).child("groups").child("name").observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     if let data = snapshot.value as? String {
                         
                         if let title = data as? String {
+                            print(title)
                             self.item.text = title
                         }
                     }

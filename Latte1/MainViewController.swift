@@ -114,7 +114,7 @@ class MainViewController: UITabBarController {
             
         })
             
-            /*myUid = FirebaseDataService.instance.currentUserUid!
+            var myUid = FirebaseDataService.instance.currentUserEmail!
             let nowUserRef = FirebaseDataService.instance.userRef.child(myUid)
             nowUserRef.observeSingleEvent(of: .value, with: {(snapshot) in
                 let values = snapshot.value
@@ -131,8 +131,7 @@ class MainViewController: UITabBarController {
                     }
                 }
             })
-            confirm.text = "Are you " + Email + "?\n" + "is your birthday " + myBirthDate + "?\n" + "is your loveday " + ourLoveDate + "?"
-            print(confirm.text)*/
+        
         // Do any additional setup after loading the view.
     }
     
