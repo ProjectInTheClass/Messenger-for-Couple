@@ -30,7 +30,7 @@ class DCellView:UICollectionViewCell {
 
 class DViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-    var photos : [Any] = []
+    var photos : [String] = []
     var delete : [UIImage] = []
     var photosHash : [Int] = []
     
@@ -145,7 +145,14 @@ class DViewController: UIViewController, UICollectionViewDataSource, UICollectio
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DCell", for: indexPath) as! DCellView
     
         if type(of: photos[indexPath.item]) == String.self {
-            cell.image.image = UIImage(named: photos[indexPath.item] as! String)
+            if let data = try? Data(contentsOf: URL(string: photos[indexPath.item])!) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        cell.image.image = image
+                    }
+                }
+            }
+            //cell.image.image = UIImage(named: photos[indexPath.item] as! String)
             //cell.image.sizeThatFits(cell.frame.size)
             cell.image.frame.size = cell.frame.size
         }
@@ -153,7 +160,7 @@ class DViewController: UIViewController, UICollectionViewDataSource, UICollectio
             cell.image.image = photos[indexPath.item] as? UIImage
             cell.image.frame.size = cell.frame.size
         }
-    
+        
         photosHash.append(cell.hashValue)
         
        /* if cell.layer.borderWidth == 1 {

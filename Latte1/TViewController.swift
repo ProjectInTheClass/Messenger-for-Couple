@@ -10,12 +10,14 @@ import UIKit
 //import Firebase
 
 class TViewController: UIViewController {
+    let myUid = FirebaseDataService.instance.currentUserEmail!.replacingOccurrences(of: ".", with: "-")
     @IBOutlet weak var scrollView: UIScrollView!
-    var photo : [Any] = []
+    var photo : [String] = []
     var photoName : String = ""
     var photoHash : [Int] = []
-    
+    var ralbums = FirebaseDataService.instance.groupRef.child("albums")
     let picker = UIImagePickerController()
+    let storageRef = FirebaseDataService.instance.storage.reference()
     
     /*func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
      return photo.count
@@ -40,8 +42,30 @@ class TViewController: UIViewController {
         for i in 0...dataRecieved.count - 1{
             for j in 0...photo.count - 1{
                     if type(of:photo[j]) == String.self {
-                        if UIImage(named: photo[j] as! String) ==  dataRecieved[i]  {
+                        var dimage : UIImage? = nil
+                        if let data = try? Data(contentsOf: URL(string: photo[j])!) {
+                            if let image = UIImage(data: data) {
+                                    dimage = image
+                            }
+                        }
+                        print(dimage?.pngData() == dataRecieved[i].pngData())
+                        
+                        if dimage?.pngData()?.description ==  dataRecieved[i].pngData()?.description  {
+                    
+                            let file = photo[j].split(separator: "/")
+                            let name = file[file.count-1].split(separator: "?")[0]
+                            let real = FirebaseDataService.instance.currentUserEmail! + "/" + name
+                            
+                                storageRef.child(real).delete { error in
+                                if let error = error {
+                                    // Uh-oh, an error occurred!
+                                } else {
+                                    // File deleted successfully
+                                }
+                            }
                             photo.remove(at: j)
+                            
+                            print(photo.count)
                             break
                         }
                     }
@@ -57,12 +81,23 @@ class TViewController: UIViewController {
         for index in 0...albums.count - 1 {
             var date = photoName.components(separatedBy: "/")
             if String(albums[index].year) == date[0] && String(albums[index].month) == date[1]  && String(albums[index].day) == date[2] {
+               
+                if Int(date[1])! < 10 {
+                    date[1] = "0"+date[1]
+                }
+                if Int(date[2])! < 10 {
+                    date[2] = "0"+date[2]
+                }
                 if photo.count != 0 {
+                    ralbums.child("A"+date[0]+date[1]+date[2]).child("photo").setValue(photo)
                     albums[index].photo = photo
                     break
                 }
                 else {
+                    print(date[0]+date[1]+date[2])
+                    ralbums.child("A"+date[0]+date[1]+date[2]).removeValue()
                     albums.remove(at: index)
+                    print(albums.count)
                     break
                 }
                 //selectedPhotosName = albums[index].name
@@ -93,11 +128,21 @@ class TViewController: UIViewController {
         }
         else {
             picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            
             for i in 0..<photo.count {
-                
                 let imageView = UIImageView()
                 if type(of: photo[i]) == String.self {
-                    imageView.image = UIImage(named: photo[i] as! String)
+                    //let data = Data(contentsOf: URL(string: photo[i])!)
+                    //imageView.image = UIImage(data: data)
+                    print(URL(fileURLWithPath: photo[i]))
+                    if let data = try? Data(contentsOf: URL(fileURLWithPath: photo[i])) {
+                        if let image = UIImage(data: data) {
+                            DispatchQueue.main.async {
+                                imageView.image = image
+                            }
+                        }
+                    }
+                    //imageView.image = UIImage(contentsOfFile: photo[i])
                 }
                 else if type(of: photo[i]) == UIImage.self {
                     imageView.image = photo[i] as? UIImage
@@ -114,13 +159,22 @@ class TViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        let groupName = FirebaseDataService.instance.userRef.child(myUid).child("groups").child("groupname").observeSingleEvent(of: .value, with: {(snapshot) in
+            let dic = snapshot.value as! Dictionary<String, String>.Element
+            self.ralbums = FirebaseDataService.instance.groupRef.child(dic.value).child("albums")
+        })
             picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
             for i in 0..<photo.count {
                 
                 let imageView = UIImageView()
                 if type(of: photo[i]) == String.self {
-                    imageView.image = UIImage(named: photo[i] as! String)
+                    if let data = try? Data(contentsOf: URL(string: photo[i])!) {
+                        if let image = UIImage(data: data) {
+                            DispatchQueue.main.async {
+                                imageView.image = image
+                            }
+                        }
+                    }
                 }
                 else if type(of: photo[i]) == UIImage.self {
                     imageView.image = photo[i] as? UIImage

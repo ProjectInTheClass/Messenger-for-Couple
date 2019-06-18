@@ -47,7 +47,7 @@ extension LoginViewController{
         login(email: emailField.text!, password: passwordField.text!)
     }
     
-    func login(email:String,password:String){
+    func login(email: String, password: String){
         guard let email = emailField.text, let password = passwordField.text else { return }
         
         Email = email
@@ -58,9 +58,6 @@ extension LoginViewController{
                 // TODO: 로그인 성공 user 객체에서 정보 사용
                 print("login success")
                 self.performSegue(withIdentifier: "loginToconfirm", sender: self)
-                UserDefaults.standard.set(email, forKey: "saved email")
-                UserDefaults.standard.set(password, forKey: "saved password")
-                UserDefaults.standard.synchronize()
             } else {
                 // TODO: 로그인 실패 처리
                 if let ErrorCode = AuthErrorCode(rawValue: (error?._code)!) {

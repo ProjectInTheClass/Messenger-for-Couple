@@ -141,6 +141,56 @@
             </objects>
             <point key="canvasLocation" x="-794" y="434"/>
         </scene>
+        <!--Matching View Controller-->
+        <scene sceneID="yK2-ye-ojD">
+            <objects>
+                <viewController id="xL0-Bv-9W7" customClass="MatchingViewController" customModule="Latte1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2J3-Pt-6rY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o9V-dq-j8s">
+                                <rect key="frame" x="59" y="203" width="263" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoJ-4j-2wm">
+                                <rect key="frame" x="116" y="241" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="입력"/>
+                                <connections>
+                                    <action selector="enterButton:" destination="xL0-Bv-9W7" eventType="touchUpInside" id="DZM-5M-mXv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="상대방의 이메일을 입력하세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Of7-Pl-xG9">
+                                <rect key="frame" x="78" y="114" width="225" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EI2-Kf-mVj">
+                                <rect key="frame" x="221" y="241" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="시작"/>
+                                <connections>
+                                    <action selector="startButton:" destination="xL0-Bv-9W7" eventType="touchUpInside" id="wIY-qr-gYP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="LYm-cQ-0Vd"/>
+                    </view>
+                    <connections>
+                        <outlet property="textfield" destination="o9V-dq-j8s" id="yDh-8q-qdd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xU-7m-Ojd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1047.2" y="903.59820089955031"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6bv-hX-xC0">
             <objects>
@@ -251,12 +301,13 @@
                         <segue destination="jJ4-u3-RCZ" kind="unwind" identifier="authTologin" unwindAction="unwind:" id="DaG-EA-9fm"/>
                         <segue destination="G0x-CH-AA6" kind="show" identifier="authToconfirm" id="fYf-de-rNm"/>
                         <segue destination="jJ4-u3-RCZ" kind="unwind" identifier="authToauthdate" unwindAction="unwind2:" id="QVe-IR-PCc"/>
+                        <segue destination="xL0-Bv-9W7" kind="presentation" identifier="matching" id="oZH-EA-a0V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxU-tH-vwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="jJ4-u3-RCZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2023" y="530"/>
+            <point key="canvasLocation" x="-2054" y="753"/>
         </scene>
         <!--Loading View Controller-->
         <scene sceneID="KoP-xY-AWu">
@@ -370,7 +421,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="~님이 맞나요?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0c-sw-dMw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="~님이 맞나요?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0c-sw-dMw">
                                 <rect key="frame" x="54" y="166" width="268" height="139"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -424,6 +475,6 @@
         <image name="like" width="21.333333969116211" height="21.333333969116211"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zf6-fT-Grp"/>
+        <segue reference="GlF-H3-KqC"/>
     </inferredMetricsTieBreakers>
 </document>

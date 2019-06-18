@@ -26,7 +26,7 @@ class AuthDateViewController: UIViewController {
         myBirthDate = formatter.string(from: birthday.date)
         print("birthday: " + myBirthDate)
     }
-
+    
     @IBAction func pickLoveday(_ sender: Any) {
         let formatter2 = DateFormatter()
         formatter2.dateFormat = "yyyy-MM-dd"
@@ -34,22 +34,15 @@ class AuthDateViewController: UIViewController {
         ourLoveDate = formatter2.string(from: loveday.date)
         print("loveday: " + ourLoveDate)
     }
-
+    
     override func viewDidLoad() {
+        let today = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        myBirthDate = formatter.string(from: today)
+        ourLoveDate = formatter.string(from: today)
+        
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -1,11 +1,3 @@
-//
-//  CollectionViewController.swift
-//  Latte1
-//
-//  Created by 남혜빈 on 2019. 5. 9..
-//  Copyright © 2019년 남혜빈. All rights reserved.
-//
-
 import UIKit
 
 private let reuseIdentifier = "Cell"
@@ -55,17 +47,17 @@ class AViewController: UICollectionViewController {
         
         cell.label.text = String(albums[indexPath.item].year) + "/" + String(albums[indexPath.item].month) + "/" + String(albums[indexPath.item].day)
         /*if type(of:albums[indexPath.item].photo[0]) == String.self {
-            cell.cellImage.image = UIImage(named: albums[indexPath.item].photo[0] as! String)
-        }
-        else {
-            cell.cellImage.image = albums[indexPath.item].photo[0] as? UIImage
-        }*/
+         cell.cellImage.image = UIImage(named: albums[indexPath.item].photo[0] as! String)
+         }
+         else {
+         cell.cellImage.image = albums[indexPath.item].photo[0] as? UIImage
+         }*/
         
         // Configure the cell
         
         return cell
     }
-
+    
     // MARK: UICollectionViewDelegate
     
     /*
@@ -97,5 +89,4 @@ class AViewController: UICollectionViewController {
      */
     
 }
-
 
