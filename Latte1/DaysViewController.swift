@@ -28,7 +28,7 @@ class DaysViewController: UIViewController {
     @IBAction func Select(_ sender: Any) {
         setNow()
         
-        if(((nowHour >= 0 && nowHour < 3) || (nowHour >= 21 && nowHour < 24)) && selected[numWeekday] == false){
+        if(((nowHour >= 0 && nowHour < 3) || (nowHour >= 21 && nowHour < 24)) && selected[numWeekday-1] == false){
             let chooseAlert = UIAlertController(title: "Make your mind", message: "do you love her/him?", preferredStyle: .alert)
             let LoveAction = UIAlertAction(title: "Yes", style: .default, handler: {(action: UIAlertAction) -> Void in self.SelectYes()})
             let NoAction = UIAlertAction(title: "No", style: .default, handler: {(action: UIAlertAction) -> Void in self.SelectNo()})
@@ -38,7 +38,7 @@ class DaysViewController: UIViewController {
             
             self.present(chooseAlert, animated: true, completion: nil)
         }
-        else if(selected[numWeekday] == true){
+        else if(selected[numWeekday-1] == true){
             let chooseAlert = UIAlertController(title: "You already did", message: "Please try again tomorrow", preferredStyle: .alert)
             let checkAction = UIAlertAction(title: "Okay", style: .default, handler: {(action: UIAlertAction) -> Void in print()})
             
@@ -82,7 +82,7 @@ class DaysViewController: UIViewController {
         if nowWeekday == WeekDay.Sat{
             FirebaseDataService.instance.userRef.child(MyEmail).child("realloveday").updateChildValues(["saturday":"true"])
         }
-        selected[numWeekday] = true
+        selected[numWeekday-1] = true
         
         Change()
     }
@@ -113,7 +113,7 @@ class DaysViewController: UIViewController {
         if nowWeekday == WeekDay.Sat{
             FirebaseDataService.instance.userRef.child(MyEmail).child("realloveday").updateChildValues(["saturday":"false"])
         }
-        selected[numWeekday] = true
+        selected[numWeekday-1] = true
         
         Change()
     }
@@ -147,72 +147,6 @@ class DaysViewController: UIViewController {
                     yourEmail = index.value
                     yourEmail = yourEmail.replacingOccurrences(of: ".", with: "-")
                     print("YOUR EMAIL: " + yourEmail)
-                    
-                    let nowUserRef3 = FirebaseDataService.instance.userRef.child(yourEmail).child("realloveday")
-                    nowUserRef3.observeSingleEvent(of: .value, with: {(snapshot) in
-                        print("3-1")
-                        let values = snapshot.value
-                        let dic = values as! Dictionary<String, String>
-                        
-                        for index in dic{
-                            if index.key == "sunday"{
-                                if index.value == "true"{
-                                    yourLoveDay[0] = true
-                                }
-                                else{
-                                    yourLoveDay[0] = false
-                                }
-                            }
-                            if index.key == "monday"{
-                                if index.value == "true"{
-                                    yourLoveDay[1] = true
-                                }
-                                else{
-                                    yourLoveDay[1] = false
-                                }
-                            }
-                            if index.key == "tuesday"{
-                                if index.value == "true"{
-                                    yourLoveDay[2] = true
-                                }
-                                else{
-                                    yourLoveDay[2] = false
-                                }
-                            }
-                            if index.key == "wednesday"{
-                                if index.value == "true"{
-                                    yourLoveDay[3] = true
-                                }
-                                else{
-                                    yourLoveDay[3] = false
-                                }
-                            }
-                            if index.key == "thursday"{
-                                if index.value == "true"{
-                                    yourLoveDay[4] = true
-                                }
-                                else{
-                                    yourLoveDay[4] = false
-                                }
-                            }
-                            if index.key == "friday"{
-                                if index.value == "true"{
-                                    yourLoveDay[5] = true
-                                }
-                                else{
-                                    yourLoveDay[5] = false
-                                }
-                            }
-                            if index.key == "saturday"{
-                                if index.value == "true"{
-                                    yourLoveDay[6] = true
-                                }
-                                else{
-                                    yourLoveDay[6] = false
-                                }
-                            }
-                        }
-                    })
                 }
             }
         })
@@ -283,6 +217,73 @@ class DaysViewController: UIViewController {
             }
         })
         print("3")
+        yourEmail = yourEmail.replacingOccurrences(of: ".", with: "-")
+        print("yourEmail: " + yourEmail)
+        let nowUserRef3 = FirebaseDataService.instance.userRef.child(yourEmail).child("realloveday")
+        nowUserRef3.observeSingleEvent(of: .value, with: {(snapshot) in
+            print("3-1")
+            let values = snapshot.value
+            let dic = values as! Dictionary<String, String>
+            
+            for index in dic{
+                if index.key == "sunday"{
+                    if index.value == "true"{
+                        yourLoveDay[0] = true
+                    }
+                    else{
+                        yourLoveDay[0] = false
+                    }
+                }
+                if index.key == "monday"{
+                    if index.value == "true"{
+                        yourLoveDay[1] = true
+                    }
+                    else{
+                        yourLoveDay[1] = false
+                    }
+                }
+                if index.key == "tuesday"{
+                    if index.value == "true"{
+                        yourLoveDay[2] = true
+                    }
+                    else{
+                        yourLoveDay[2] = false
+                    }
+                }
+                if index.key == "wednesday"{
+                    if index.value == "true"{
+                        yourLoveDay[3] = true
+                    }
+                    else{
+                        yourLoveDay[3] = false
+                    }
+                }
+                if index.key == "thursday"{
+                    if index.value == "true"{
+                        yourLoveDay[4] = true
+                    }
+                    else{
+                        yourLoveDay[4] = false
+                    }
+                }
+                if index.key == "friday"{
+                    if index.value == "true"{
+                        yourLoveDay[5] = true
+                    }
+                    else{
+                        yourLoveDay[5] = false
+                    }
+                }
+                if index.key == "saturday"{
+                    if index.value == "true"{
+                        yourLoveDay[6] = true
+                    }
+                    else{
+                        yourLoveDay[6] = false
+                    }
+                }
+            }
+        })
         print("4")
         for i in 0..<7 {
             if(myLoveDay[i] == true && yourLoveDay[i] == true){
@@ -293,19 +294,18 @@ class DaysViewController: UIViewController {
         //캘린더에서 일주일동안 며칠 만났는지
         formatter.dateFormat = "yyyy-MM-dd"
         /*
-         let lastSunday = formatter.string(from: Date(timeIntervalSinceNow: -86400*7))
-         let thisMonday = formatter.string(from: Date(timeIntervalSinceNow: -86400*6))
-         let thisTuesday = formatter.string(from: Date(timeIntervalSinceNow: -86400*5))
-         let thisWednesday = formatter.string(from: Date(timeIntervalSinceNow: -86400*4))
-         let thisThursday = formatter.string(from: Date(timeIntervalSinceNow: -86400*3))
-         let thisFriday = formatter.string(from: Date(timeIntervalSinceNow: -86400*2))
-         let thisSaturday = formatter.string(from: Date(timeIntervalSinceNow: -86400))
-         */
-        print("hello")
+        let lastSunday = formatter.string(from: Date(timeIntervalSinceNow: -86400*7))
+        let thisMonday = formatter.string(from: Date(timeIntervalSinceNow: -86400*6))
+        let thisTuesday = formatter.string(from: Date(timeIntervalSinceNow: -86400*5))
+        let thisWednesday = formatter.string(from: Date(timeIntervalSinceNow: -86400*4))
+        let thisThursday = formatter.string(from: Date(timeIntervalSinceNow: -86400*3))
+        let thisFriday = formatter.string(from: Date(timeIntervalSinceNow: -86400*2))
+        let thisSaturday = formatter.string(from: Date(timeIntervalSinceNow: -86400))
+        */
         for i in 1..<8{
             let thisDay = formatter.string(from: Date(timeIntervalSinceNow: TimeInterval(-86400*i)))
-            print("thisday= " + thisDay)
-            let nowSchedRef = FirebaseDataService.instance.schedRef.child(thisDay).child(MyEmail)
+            
+            let nowSchedRef = FirebaseDataService.instance.schedRef.child(thisDay).child(FirebaseDataService.instance.currentUserEmail!)
             nowSchedRef.observeSingleEvent(of: .value, with: {(snapshot) in
                 let values = snapshot.value
                 if let dic = values as? Dictionary<String, String>{
@@ -317,87 +317,87 @@ class DaysViewController: UIViewController {
         }
         
         /*
-         //일요일 : 지난주 일~이번주 토
-         var lastSundayDay: Int = 0
-         var lastSundayMonth: Int = 0
-         var lastSundayYear: Int = 0
-         
-         lastSundayDay = nowDay-7
-         if(lastSundayDay <= 0){
-         lastSundayMonth = nowMonth - 1
-         if(lastSundayMonth == 0) {
-         lastSundayYear = nowYear - 1
-         lastSundayMonth = 12
-         }
-         
-         lastSundayDay = abs(lastSundayDay)
-         switch lastSundayMonth{
-         case 1,3,5,7,8,10,12:
-         lastSundayDay = 31-lastSundayDay
-         break
-         case 4,6,9,11:
-         lastSundayDay = 30-lastSundayDay
-         break
-         case 2:
-         if lastSundayYear%4 == 0 && lastSundayYear%100 != 0 && lastSundayYear%400 == 0{
-         lastSundayDay = 29-lastSundayDay
-         }
-         else{
-         lastSundayDay = 28-lastSundayDay
-         }
-         break
-         default:
-         break
-         }
-         }
-         print("last Sunday: " + String(lastSundayYear) + "-" + String(lastSundayMonth) + "-" + String(lastSundayDay))
-         
-         var thisSaturdayDay : Int = 0
-         var thisSaturdayMonth : Int = 0
-         var thisSaturdayYear : Int = 0
-         
-         thisSaturdayDay = nowDay-1
-         if(thisSaturdayDay <= 0){
-         thisSaturdayMonth = nowMonth - 1
-         if(thisSaturdayMonth == 0) {
-         thisSaturdayYear = nowYear - 1
-         thisSaturdayMonth = 12
-         }
-         thisSaturdayDay = abs(thisSaturdayDay)
-         switch thisSaturdayMonth{
-         case 1,3,5,7,8,10,12:
-         thisSaturdayDay = 31-thisSaturdayDay
-         break
-         case 4,6,9,11:
-         thisSaturdayDay = 30-thisSaturdayDay
-         break
-         case 2:
-         if nowYear%4 == 0 && nowYear%100 != 0 && nowYear%400 == 0{
-         thisSaturdayDay = 29-thisSaturdayDay
-         }
-         else{
-         thisSaturdayDay = 28-thisSaturdayDay
-         }
-         break
-         default:
-         break
-         }
-         }
-         print("this Saturday: " + String(thisSaturdayYear) + "-" + String(thisSaturdayMonth) + "-" + String(thisSaturdayDay))
-         
-         let lastSunday = String(lastSundayYear) + "-" + String(lastSundayMonth) + "-" + String(lastSundayDay)
-         let thisSaturday = String(thisSaturdayYear) + "-" + String(thisSaturdayMonth) + "-" + String(thisSaturdayDay)
-         
-         let nowSchedRef = FirebaseDataService.instance.schedRef.child(lastSunday).child(FirebaseDataService.instance.currentUserEmail!)
-         nowSchedRef.observeSingleEvent(of: .value, with: {(snapshot) in
-         let values = snapshot.value
-         if let dic = values as? Dictionary<String, String>{
-         realdays += 1
-         }
-         else{
-         }
-         })
-         */
+        //일요일 : 지난주 일~이번주 토
+        var lastSundayDay: Int = 0
+        var lastSundayMonth: Int = 0
+        var lastSundayYear: Int = 0
+        
+        lastSundayDay = nowDay-7
+        if(lastSundayDay <= 0){
+            lastSundayMonth = nowMonth - 1
+            if(lastSundayMonth == 0) {
+                lastSundayYear = nowYear - 1
+                lastSundayMonth = 12
+            }
+            
+            lastSundayDay = abs(lastSundayDay)
+            switch lastSundayMonth{
+            case 1,3,5,7,8,10,12:
+                lastSundayDay = 31-lastSundayDay
+                break
+            case 4,6,9,11:
+                lastSundayDay = 30-lastSundayDay
+                break
+            case 2:
+                if lastSundayYear%4 == 0 && lastSundayYear%100 != 0 && lastSundayYear%400 == 0{
+                    lastSundayDay = 29-lastSundayDay
+                }
+                else{
+                    lastSundayDay = 28-lastSundayDay
+                }
+                break
+            default:
+                break
+            }
+        }
+        print("last Sunday: " + String(lastSundayYear) + "-" + String(lastSundayMonth) + "-" + String(lastSundayDay))
+        
+        var thisSaturdayDay : Int = 0
+        var thisSaturdayMonth : Int = 0
+        var thisSaturdayYear : Int = 0
+        
+        thisSaturdayDay = nowDay-1
+        if(thisSaturdayDay <= 0){
+            thisSaturdayMonth = nowMonth - 1
+            if(thisSaturdayMonth == 0) {
+                thisSaturdayYear = nowYear - 1
+                thisSaturdayMonth = 12
+            }
+            thisSaturdayDay = abs(thisSaturdayDay)
+            switch thisSaturdayMonth{
+            case 1,3,5,7,8,10,12:
+                thisSaturdayDay = 31-thisSaturdayDay
+                break
+            case 4,6,9,11:
+                thisSaturdayDay = 30-thisSaturdayDay
+                break
+            case 2:
+                if nowYear%4 == 0 && nowYear%100 != 0 && nowYear%400 == 0{
+                    thisSaturdayDay = 29-thisSaturdayDay
+                }
+                else{
+                    thisSaturdayDay = 28-thisSaturdayDay
+                }
+                break
+            default:
+                break
+            }
+        }
+        print("this Saturday: " + String(thisSaturdayYear) + "-" + String(thisSaturdayMonth) + "-" + String(thisSaturdayDay))
+        
+        let lastSunday = String(lastSundayYear) + "-" + String(lastSundayMonth) + "-" + String(lastSundayDay)
+        let thisSaturday = String(thisSaturdayYear) + "-" + String(thisSaturdayMonth) + "-" + String(thisSaturdayDay)
+        
+        let nowSchedRef = FirebaseDataService.instance.schedRef.child(lastSunday).child(FirebaseDataService.instance.currentUserEmail!)
+        nowSchedRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            let values = snapshot.value
+            if let dic = values as? Dictionary<String, String>{
+                realdays += 1
+            }
+            else{
+            }
+        })
+        */
         print("Calcul/")
     }
     
@@ -472,7 +472,6 @@ class DaysViewController: UIViewController {
     
     func Change(){
         print("/Change")
-        //nowWeekday = WeekDay.Sun
         setNow()
         
         if(nowWeekday == WeekDay.Sun){ //일요일이면 계산
@@ -480,12 +479,8 @@ class DaysViewController: UIViewController {
             var thisdays = realdays
             var nowText = String(thisdays) + " Days!"
             RealDays.text = nowText
-            print("nowText = " + nowText)
             UpperText.text = "Your real love days are"
-            
-            self.view.bringSubviewToFront(self.RealDays)
-            self.WaitingImage.isHidden = true
-            
+            self.view.bringSubviewToFront(RealDays)
             if(realdays <= 3){
                 BottomText.text = "Oh my god..."
             }
@@ -496,18 +491,16 @@ class DaysViewController: UIViewController {
         else if(nowWeekday == WeekDay.Mon && nowHour == 0 && nowMin == 0 && nowSec == 0){
             realdays = 0
             self.view.sendSubviewToBack(RealDays)
-            self.WaitingImage.isHidden = false
         }
         else{
             RealDays.text = ""
             UpperText.text = "We're calculating"
             BottomText.text = "Please wait for it"
-            self.WaitingImage.isHidden = false
             
             rotate(imageView: WaitingImage, aCircleTime: 5)
         }
         
-        if(selected[numWeekday] == false){
+        if(selected[numWeekday-1] == false){
             LeadText.text = "Make up your mind ->"
         }
         else{

@@ -85,12 +85,12 @@ extension AuthViewController{
                 }
             } else{
                 print(email.replacingOccurrences(of: ".", with: "-"))
-                FirebaseDataService.instance.userRef.child(email.replacingOccurrences(of: ".", with: "-")).updateChildValues(["name":Name])
-                FirebaseDataService.instance.userRef.child(email.replacingOccurrences(of: ".", with: "-")).updateChildValues(["email":email.replacingOccurrences(of: ".", with: "-")])
-                FirebaseDataService.instance.userRef.child(email.replacingOccurrences(of: ".", with: "-")).updateChildValues(["password":password])
-                FirebaseDataService.instance.userRef.child(email.replacingOccurrences(of: ".", with: "-")).updateChildValues(["birthday":myBirthDate])
-                FirebaseDataService.instance.userRef.child(email.replacingOccurrences(of: ".", with: "-")).updateChildValues(["loveday":ourLoveDate])
-                FirebaseDataService.instance.userRef.child(email.replacingOccurrences(of: ".", with: "-")).updateChildValues(["uid":FirebaseDataService.instance.currentUserUid!])
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["name":Name])
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["email":email.replacingOccurrences(of: ".", with: "-")])
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["password":password])
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["birthday":myBirthDate])
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["loveday":ourLoveDate])
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["uid":FirebaseDataService.instance.currentUserUid!])
                 
                 print("회원가입 성공")
                 dump(user)
