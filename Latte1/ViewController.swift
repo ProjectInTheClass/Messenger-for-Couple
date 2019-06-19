@@ -15,7 +15,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     let storageRef = FirebaseDataService.instance.storage.reference()
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        print(albums.count)
+        //print(albums.count)
         if albums.count == 0 {
             self.label?.isEnabled = true
         }
@@ -40,12 +40,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let imageView = UIImageView()
         if type(of: albums[indexPath.item].photo[0]) == String.self {
             /*if let data = try? Data(contentsOf: URL(string: albums[indexPath.item].photo[0])!) {
-             if let image = UIImage(data: data) {
-             DispatchQueue.main.async {
-             cell.cellImage.image = image
-             }
-             }
-             }*/
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        cell.cellImage.image = image
+                    }
+                }
+            }*/
             if let data = try? Data(contentsOf: URL(string: albums[indexPath.item].photo[0])!) {
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
@@ -97,15 +97,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
-        
+     
         super.viewDidLoad()
         let groupName = FirebaseDataService.instance.userRef.child(myUid!).child("groups").child("groupname").observeSingleEvent(of: .value, with: {(snapshot) in
-            //print(snapshot.value)
-            let dic = snapshot.value as! String
-            self.ralbums = FirebaseDataService.instance.groupRef.child(dic).child("albums")
+            let dic = snapshot.value as! Dictionary<String, String>.Element
+            self.ralbums = FirebaseDataService.instance.groupRef.child(dic.value).child("albums")
         })
         //self.collectionview?.reloadData()
-        /*for i in 0..<albums.count {
+        for i in 0..<albums.count {
             for j in i+1..<albums.count {
                 if albums[i].year > albums[j].year {
                     albums.swapAt(i, j)
@@ -123,8 +122,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 }
                 
             }
-        }*/
-        //print(albums.count)
+        }
         self.label?.text = "No Album. Make your albums"
         picker.delegate = self
         if albums.count == 0 {
@@ -140,31 +138,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func viewDidAppear(_ animated: Bool) {
         
-        for i in 0..<albums.count-1 {
-            for j in i+1..<albums.count {
-                print(albums[i].year, albums[j].year)
-                if albums[i].year < albums[j].year {
-                    albums.swapAt(i, j)
-                }
-                else if albums[i].year == albums[j].year {
-                    print(albums[i].month, albums[j].month)
-                    if albums[i].month < albums[j].month {
-                        albums.swapAt(i, j)
-                    }
-                        
-                    else if albums[i].month == albums[j].month {
-                        print(albums[i].day, albums[j].day)
-                        if albums[i].day < albums[j].day {
-                            albums.swapAt(i, j)
-                        }
-                    }
-                }
-                
-            }
-        }
-        print(albums)
         self.collectionview?.reloadData()
-        
         if albums.count == 0 {
             self.label?.isEnabled = true
         }
@@ -205,7 +179,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+
         if let fileUrl = info[UIImagePickerController.InfoKey.imageURL] {
             //let image = info[UIImagePickerController.InfoKey.originalImage]
             let image = info[UIImagePickerController.InfoKey.imageURL]
@@ -229,14 +203,14 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                     print("put File error :", error);
                     return
                 }
-                //print("upload success")
+                print("upload success")
                 
                 imageRef.downloadURL(completion: { (url, error) in
                     guard error == nil else {
-                        //print("download url error :", error)
+                        print("download url error :", error)
                         return
                     }
-                    //print("download url :", url)
+                    print("download url :", url)
                     downloadURL = url!
                     // Get the download URL for 'images/stars.jpg'
                     for index in 0..<albums.count {
@@ -282,22 +256,22 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                         self.ralbums.child("A"+date[0]+date[1]+date[2]).child("year").setValue(Int(date[0])!)
                         self.ralbums.child("A"+date[0]+date[1]+date[2]).child("month").setValue(Int(date[1])!)
                         self.ralbums.child("A"+date[0]+date[1]+date[2]).child("day").setValue(Int(date[2])!)
-                        self.ralbums.child("A"+date[0]+date[1]+date[2]).child("photo").setValue(new.photo)
+                        self.ralbums.child("A"+date[0]+date[1]+date[2]).child("photo").setValue(new)
                         
                         
                     }
                     for i in 0..<albums.count {
                         for j in i+1..<albums.count {
-                            if albums[i].year < albums[j].year {
+                            if albums[i].year > albums[j].year {
                                 albums.swapAt(i, j)
                             }
-                            else if albums[i].year == albums[j].year {
-                                if albums[i].month < albums[j].month {
+                            else if albums[i].year == albums[i].year {
+                                if albums[i].month > albums[j].month {
                                     albums.swapAt(i, j)
                                 }
                                     
                                 else if albums[i].month == albums[j].month {
-                                    if albums[i].day < albums[j].day {
+                                    if albums[i].day > albums[j].day {
                                         albums.swapAt(i, j)
                                     }
                                 }
@@ -305,22 +279,21 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                             
                         }
                     }
-                    print(albums.count)
                     self.collectionview.reloadData()
                     
-                    
-                    
+                
+
                 })
                 
-                
+
                 // Metadata contains file metadata such as size, content-type.
-                
+
                 // You can also access to download URL after upload.
             }
             //let uploadTask = storageRef.putFile(from: image as! URL)
+          
             
-            
-            
+ 
             
             
         }

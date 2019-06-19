@@ -160,8 +160,8 @@ class TViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let groupName = FirebaseDataService.instance.userRef.child(myUid).child("groups").child("groupname").observeSingleEvent(of: .value, with: {(snapshot) in
-            let dic = snapshot.value as! String
-            self.ralbums = FirebaseDataService.instance.groupRef.child(dic).child("albums")
+            let dic = snapshot.value as! Dictionary<String, String>.Element
+            self.ralbums = FirebaseDataService.instance.groupRef.child(dic.value).child("albums")
         })
             picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
             for i in 0..<photo.count {
