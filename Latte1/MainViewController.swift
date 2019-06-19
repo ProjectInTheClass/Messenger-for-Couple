@@ -10,13 +10,10 @@ import UIKit
 import Firebase
 
 class MainViewController: UITabBarController {
-    let myEmail = FirebaseDataService.instance.currentUserEmail?.replacingOccurrences(of: ".", with: "-")
-    
-    
+    let myEmail = FirebaseDataService.instance.currentUserEmail!.replacingOccurrences(of: ".", with: "-")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         var photo : [String] = []
         var year : [Int] = []
@@ -41,7 +38,7 @@ class MainViewController: UITabBarController {
          }
          })*/
         
-        let groupname = FirebaseDataService.instance.userRef.child(myEmail!).child("groups").child("groupname").observeSingleEvent(of: .value, with: {(snapshot) in
+        let groupname = FirebaseDataService.instance.userRef.child(myEmail).child("groups").child("groupname").observeSingleEvent(of: .value, with: {(snapshot) in
             //print(snapshot)
             if let dic = snapshot.value as? String {
                 //print(dic)
@@ -93,25 +90,7 @@ class MainViewController: UITabBarController {
                     }
                     
                 })
-                
-                
-                
             }
         })
-        
-        
-        // Do any additional setup after loading the view.
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
