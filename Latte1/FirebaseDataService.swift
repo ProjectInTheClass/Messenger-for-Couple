@@ -28,13 +28,22 @@ class FirebaseDataService {
     // message : 채팅 말풍선 하나 단위
     let messageRef = baseRef.child("message")
     
-    // 현재 접속중인 유저의 uid
+    // schedule: 스케쥴 단위
+    let schedRef = baseRef.child("schedule")
     
-    
+    // 현재 접속중인 유저의 email
     var currentUserEmail: String? {
-        
         get {
             guard let uid = Auth.auth().currentUser?.email else {
+                return nil
+            }
+            return uid
+        }
+    }
+    // 현재 접속중인 유저의 uid
+    var currentUserUid: String? {
+        get {
+            guard let uid = Auth.auth().currentUser?.uid else {
                 return nil
             }
             return uid

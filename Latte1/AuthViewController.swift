@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 
 class AuthViewController: UIViewController {
+    @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
@@ -31,7 +32,6 @@ class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
 }
@@ -44,23 +44,27 @@ extension AuthViewController{
     }
     
     func doSignUp(){
+        if nameField.text! == ""{
+            showAlert(message: "이름을 입력해주세요")
+            return
+        }
         if emailField.text! == ""{
             showAlert(message: "이메일을 입력해주세요")
             return
         }
-        
         if passwordField.text! == ""{
             showAlert(message: "비밀번호를 입력해주세요")
             return
         }
+        Name = nameField.text!
+        Email = emailField.text!
+        Password = passwordField.text!
+        
         signUp(email: emailField.text!, password: passwordField.text!)
-        self.performSegue(withIdentifier: "matching", sender: self)
-        //self.performSegue(withIdentifier: "authToconfirm", sender: self)
         print("success register")
     }
     
-    
-    func signUp(email:String,password:String){
+    func signUp(email: String, password: String){
         Auth.auth().createUser(withEmail: email, password: password, completion: {
             (user, error) in
             if error != nil{
@@ -81,13 +85,16 @@ extension AuthViewController{
                 }
             } else{
                 print(email.replacingOccurrences(of: ".", with: "-"))
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["name":Name])
                 FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["email":email.replacingOccurrences(of: ".", with: "-")])
                 FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["password":password])
                 FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["birthday":myBirthDate])
-            FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["loveday":ourLoveDate])
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["loveday":ourLoveDate])
+                FirebaseDataService.instance.userRef.child(FirebaseDataService.instance.currentUserEmail!).updateChildValues(["uid":FirebaseDataService.instance.currentUserUid!])
                 
                 print("회원가입 성공")
                 dump(user)
+                self.performSegue(withIdentifier: "matching", sender: self)
             }
         })
     }

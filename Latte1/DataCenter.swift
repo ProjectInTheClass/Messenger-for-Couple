@@ -41,6 +41,8 @@ var numWeekday : Int = 0
 var realdays : Int = 0
 
 // LOGIN
+var Name: String = ""
+var YourName: String = ""
 var Email: String = ""
 var Password: String = ""
 var myBirthDate: String = ""
