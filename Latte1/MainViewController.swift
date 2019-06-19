@@ -113,24 +113,21 @@ class MainViewController: UITabBarController {
             }
             
         })
+        
+        let nowSchedRef = FirebaseDataService.instance.schedRef.child(FirebaseDataService.instance.currentUserEmail!).child("groups")
+        nowSchedRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            let values = snapshot.value
+            let dic = values as! Dictionary<String, String>
             
-            var myUid = FirebaseDataService.instance.currentUserEmail!
-            let nowUserRef = FirebaseDataService.instance.userRef.child(myUid)
-            nowUserRef.observeSingleEvent(of: .value, with: {(snapshot) in
-                let values = snapshot.value
-                let dic = values as! Dictionary<String, String>
-                
-                for index in dic{
-                    if index.key == "birthday" {
-                        myBirthDate = index.value
-                        print(myBirthDate)
-                    }
-                    if index.key == "loveday" {
-                        ourLoveDate = index.value
-                        print(ourLoveDate)
-                    }
+            for index in dic{
+                if index.key == "myname"{
+                    Name = index.value
                 }
-            })
+                if index.key == "name"{
+                    YourName = index.value
+                }
+            }
+        })
         
         // Do any additional setup after loading the view.
     }

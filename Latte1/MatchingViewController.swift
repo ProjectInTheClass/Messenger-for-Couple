@@ -105,9 +105,11 @@ extension MatchingViewController{
                         let newGroupName = myEmail + yourEmail
                         FirebaseDataService.instance.userRef.child(myEmail).child("groups").updateChildValues(["groupname":newGroupName])
                         FirebaseDataService.instance.userRef.child(myEmail).child("groups").updateChildValues(["name":yourName])
+                        FirebaseDataService.instance.userRef.child(myEmail).child("groups").updateChildValues(["myname":myName])
                         FirebaseDataService.instance.userRef.child(myEmail).child("groups").updateChildValues(["email":yourEmail])
                         FirebaseDataService.instance.userRef.child(yourEmail).child("groups").updateChildValues(["groupname":newGroupName])
                         FirebaseDataService.instance.userRef.child(yourEmail).child("groups").updateChildValues(["name":myName])
+                        FirebaseDataService.instance.userRef.child(yourEmail).child("groups").updateChildValues(["myname":yourName])
                         FirebaseDataService.instance.userRef.child(yourEmail).child("groups").updateChildValues(["email":myEmail])
                         FirebaseDataService.instance.userRef.child(myEmail).child("realloveday").updateChildValues(["monday":"false"])
                         FirebaseDataService.instance.userRef.child(myEmail).child("realloveday").updateChildValues(["tuesday":"false"])

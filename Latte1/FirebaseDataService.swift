@@ -28,6 +28,9 @@ class FirebaseDataService {
     // message : 채팅 말풍선 하나 단위
     let messageRef = baseRef.child("message")
     
+    // schedule: 스케쥴 단위
+    let schedRef = baseRef.child("schedule")
+    
     // 현재 접속중인 유저의 email
     var currentUserEmail: String? {
         get {

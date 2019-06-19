@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 import FirebaseAuth
-import Firebase
+import FirebaseDatabase
 
 var MyEmail: String = ""
 var yourEmail: String = ""
@@ -290,6 +290,114 @@ class DaysViewController: UIViewController {
                 realdays += 1
             }
         }
+        
+        //캘린더에서 일주일동안 며칠 만났는지
+        formatter.dateFormat = "yyyy-MM-dd"
+        /*
+        let lastSunday = formatter.string(from: Date(timeIntervalSinceNow: -86400*7))
+        let thisMonday = formatter.string(from: Date(timeIntervalSinceNow: -86400*6))
+        let thisTuesday = formatter.string(from: Date(timeIntervalSinceNow: -86400*5))
+        let thisWednesday = formatter.string(from: Date(timeIntervalSinceNow: -86400*4))
+        let thisThursday = formatter.string(from: Date(timeIntervalSinceNow: -86400*3))
+        let thisFriday = formatter.string(from: Date(timeIntervalSinceNow: -86400*2))
+        let thisSaturday = formatter.string(from: Date(timeIntervalSinceNow: -86400))
+        */
+        for i in 1..<8{
+            let thisDay = formatter.string(from: Date(timeIntervalSinceNow: TimeInterval(-86400*i)))
+            
+            let nowSchedRef = FirebaseDataService.instance.schedRef.child(thisDay).child(FirebaseDataService.instance.currentUserEmail!)
+            nowSchedRef.observeSingleEvent(of: .value, with: {(snapshot) in
+                let values = snapshot.value
+                if let dic = values as? Dictionary<String, String>{
+                    realdays += 1
+                }
+                else{
+                }
+            })
+        }
+        
+        /*
+        //일요일 : 지난주 일~이번주 토
+        var lastSundayDay: Int = 0
+        var lastSundayMonth: Int = 0
+        var lastSundayYear: Int = 0
+        
+        lastSundayDay = nowDay-7
+        if(lastSundayDay <= 0){
+            lastSundayMonth = nowMonth - 1
+            if(lastSundayMonth == 0) {
+                lastSundayYear = nowYear - 1
+                lastSundayMonth = 12
+            }
+            
+            lastSundayDay = abs(lastSundayDay)
+            switch lastSundayMonth{
+            case 1,3,5,7,8,10,12:
+                lastSundayDay = 31-lastSundayDay
+                break
+            case 4,6,9,11:
+                lastSundayDay = 30-lastSundayDay
+                break
+            case 2:
+                if lastSundayYear%4 == 0 && lastSundayYear%100 != 0 && lastSundayYear%400 == 0{
+                    lastSundayDay = 29-lastSundayDay
+                }
+                else{
+                    lastSundayDay = 28-lastSundayDay
+                }
+                break
+            default:
+                break
+            }
+        }
+        print("last Sunday: " + String(lastSundayYear) + "-" + String(lastSundayMonth) + "-" + String(lastSundayDay))
+        
+        var thisSaturdayDay : Int = 0
+        var thisSaturdayMonth : Int = 0
+        var thisSaturdayYear : Int = 0
+        
+        thisSaturdayDay = nowDay-1
+        if(thisSaturdayDay <= 0){
+            thisSaturdayMonth = nowMonth - 1
+            if(thisSaturdayMonth == 0) {
+                thisSaturdayYear = nowYear - 1
+                thisSaturdayMonth = 12
+            }
+            thisSaturdayDay = abs(thisSaturdayDay)
+            switch thisSaturdayMonth{
+            case 1,3,5,7,8,10,12:
+                thisSaturdayDay = 31-thisSaturdayDay
+                break
+            case 4,6,9,11:
+                thisSaturdayDay = 30-thisSaturdayDay
+                break
+            case 2:
+                if nowYear%4 == 0 && nowYear%100 != 0 && nowYear%400 == 0{
+                    thisSaturdayDay = 29-thisSaturdayDay
+                }
+                else{
+                    thisSaturdayDay = 28-thisSaturdayDay
+                }
+                break
+            default:
+                break
+            }
+        }
+        print("this Saturday: " + String(thisSaturdayYear) + "-" + String(thisSaturdayMonth) + "-" + String(thisSaturdayDay))
+        
+        let lastSunday = String(lastSundayYear) + "-" + String(lastSundayMonth) + "-" + String(lastSundayDay)
+        let thisSaturday = String(thisSaturdayYear) + "-" + String(thisSaturdayMonth) + "-" + String(thisSaturdayDay)
+        
+        let nowSchedRef = FirebaseDataService.instance.schedRef.child(lastSunday).child(FirebaseDataService.instance.currentUserEmail!)
+        nowSchedRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            let values = snapshot.value
+            if let dic = values as? Dictionary<String, String>{
+                realdays += 1
+            }
+            else{
+            }
+        })
+        */
         print("Calcul/")
     }
     
