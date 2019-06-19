@@ -57,7 +57,21 @@ extension LoginViewController{
             if user != nil {
                 // TODO: 로그인 성공 user 객체에서 정보 사용
                 print("login success")
-                self.performSegue(withIdentifier: "loginToconfirm", sender: self)
+                let nowSchedRef = FirebaseDataService.instance.userRef.child(Email.replacingOccurrences(of: ".", with: "-")).child("groups")
+                nowSchedRef.observeSingleEvent(of: .value, with: {(snapshot) in
+                    let values = snapshot.value
+                    let dic = values as! Dictionary<String, String>
+                    
+                    for index in dic{
+                        if index.key == "myname"{
+                            Name = index.value
+                        }
+                        if index.key == "name"{
+                            YourName = index.value
+                        }
+                    }
+                    self.performSegue(withIdentifier: "loginToconfirm", sender: self)
+                })
             } else {
                 // TODO: 로그인 실패 처리
                 if let ErrorCode = AuthErrorCode(rawValue: (error?._code)!) {
