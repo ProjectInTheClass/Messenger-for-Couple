@@ -57,6 +57,13 @@ extension LoginViewController{
             if user != nil {
                 // TODO: 로그인 성공 user 객체에서 정보 사용
                 print("login success")
+                let nowSchedRef3 = FirebaseDataService.instance.userRef.child(Email.replacingOccurrences(of: ".", with: "-")).child("loveday")
+                nowSchedRef3.observeSingleEvent(of: .value, with: {(snapshot) in
+                    let values = snapshot.value
+                    let dic = values as! String
+                    
+                    ourLoveDate = dic
+                })
                 let nowSchedRef = FirebaseDataService.instance.userRef.child(Email.replacingOccurrences(of: ".", with: "-")).child("groups")
                 nowSchedRef.observeSingleEvent(of: .value, with: {(snapshot) in
                     let values = snapshot.value

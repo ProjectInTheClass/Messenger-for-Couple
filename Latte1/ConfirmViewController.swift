@@ -20,7 +20,8 @@ class ConfirmViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        confirm.text = "Are you " + Name + "?\n" + "and is your partner " + YourName + "?"
+    
+        confirm.text = "Your name: " + Name + "\n\nYour anniversary: " + ourLoveDate
     
         super.viewDidLoad()
 

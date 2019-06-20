@@ -39,6 +39,7 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //    cell.messageImage2.sizeThatFits(measuredFrameHeightForEachMessage(message: message.text).size
         //}
         //print(cell.textLabel2.text)
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -50,9 +51,14 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.messageImage2.autoresizingMask = UIView.AutoresizingMask.flexibleLeftMargin
             //cell.containerView.backgroundColor = UIColor.magenta
             cell.textLabel2.textColor = UIColor.black
-            let size = UIEdgeInsets.init(top: self.chat2.rowHeight/2, left: 1, bottom: self.chat2.rowHeight/2, right: 30)
+            //let size = UIEdgeInsets.init(top: self.chat2.rowHeight/2, left: 1, bottom: self.chat2.rowHeight/2, right: 30)
             //cell.messageImage2.image?.resizableImage(withCapInsets: size, resizingMode: .stretch)
-            cell.messageImage2.frame = CGRect.init(x: cell.frame.maxX-CGFloat(message.text.count * 13), y: cell.frame.minY, width: CGFloat(message.text.count * 13), height: cell.frame.height)
+            
+            var labelWidth = CGFloat(message.text.count * 13)
+            if message.text.count * 13 > Int(cell.frame.width * 2 / 3) {
+                labelWidth = CGFloat(cell.frame.width * 2/3)
+            }
+            cell.messageImage2.frame = CGRect.init(x: cell.frame.maxX-labelWidth, y: cell.frame.minY, width: labelWidth, height: cell.frame.height-10)
             //cell.messageImage2.frame = CGRectMake(320.0-(size.width+35.0), 2.0, size.width+35.0, size.height+24.0);
             cell.messageImage2.autoresizingMask = UIView.AutoresizingMask.flexibleLeftMargin;
             cell.textLabel2.frame = CGRect.init(x: cell.frame.maxX-cell.messageImage2.frame.width, y: cell.frame.minY, width: cell.messageImage2.frame.width, height: cell.frame.height-10.0)
@@ -60,14 +66,17 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
             //cell.containerViewRightAnchor?.isActive = true
             //cell.containerViewLeftAnchor?.isActive = false
         } else {
-            let size = self.measuredFrameHeightForEachMessage(message: message.text).width
+            var labelWidth = CGFloat(message.text.count * 13)
+            if message.text.count * 13 > Int(cell.frame.width * 2 / 3) {
+                labelWidth = CGFloat(cell.frame.width * 2/3)
+            }
             //cell.containerView.backgroundColor = UIColor.lightGray
             cell.messageImage2.image = UIImage(named: "You")
             cell.messageImage2.autoresizingMask = UIView.AutoresizingMask.flexibleRightMargin
             
             cell.textLabel2.textColor = UIColor.black
-            cell.textLabel2.frame = CGRect.init(x: cell.frame.minX, y: cell.frame.minY, width: CGFloat(message.text.count)*13, height: cell.frame.height - 10.0)
-            cell.messageImage2.frame = CGRect.init(x: cell.frame.minX, y: cell.frame.minY, width: cell.textLabel2.frame.width, height: cell.frame.height)
+            cell.textLabel2.frame = CGRect.init(x: cell.frame.minX, y: cell.frame.minY, width: labelWidth, height: cell.frame.height - 10.0)
+            cell.messageImage2.frame = CGRect.init(x: cell.frame.minX, y: cell.frame.minY, width: cell.textLabel2.frame.width, height: cell.frame.height-10)
             //cell.containerViewRightAnchor?.isActive = false
             //cell.containerViewLeftAnchor?.isActive = true
             cell.textLabel2.autoresizingMask = UIView.AutoresizingMask.flexibleRightMargin

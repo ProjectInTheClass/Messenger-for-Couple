@@ -26,7 +26,6 @@
 		0E63CC1522B4042500BCA55F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E63CC1422B4042500BCA55F /* MainViewController.swift */; };
 		0ED3D5F32282AB2100EB4616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */; };
 		0ED3D5F52282AB2100EB4616 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F42282AB2100EB4616 /* ViewController.swift */; };
-		0ED3D5FA2282AB2400EB4616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3D5F92282AB2400EB4616 /* Assets.xcassets */; };
 		0ED3D5FD2282AB2400EB4616 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3D5FB2282AB2400EB4616 /* LaunchScreen.storyboard */; };
 		0ED3D6082282AB2400EB4616 /* Latte1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D6072282AB2400EB4616 /* Latte1Tests.swift */; };
 		0ED3D6132282AB2400EB4616 /* Latte1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3D6122282AB2400EB4616 /* Latte1UITests.swift */; };
@@ -34,6 +33,7 @@
 		51B5A7E122A10D24004611E3 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5A7E022A10D24004611E3 /* CalendarViewController.swift */; };
 		8E96184852F5D2D0764B0285 /* Pods_Latte1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7907C5A3C349E94EDF8900 /* Pods_Latte1UITests.framework */; };
 		AF25C9EB229FDE3000340ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF25C9E9229FDE3000340ACA /* Main.storyboard */; };
+		AF5D887522BB3A4C007A0D01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5D887422BB3A4C007A0D01 /* Assets.xcassets */; };
 		AFF275D22297E1AB00696394 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D12297E1AB00696394 /* Chats.storyboard */; };
 		AFF275D42297E1B600696394 /* Album.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D32297E1B600696394 /* Album.storyboard */; };
 		AFF275D62297E1BF00696394 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF275D52297E1BF00696394 /* Calendar.storyboard */; };
@@ -81,7 +81,6 @@
 		0ED3D5EF2282AB2100EB4616 /* Latte1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Latte1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED3D5F22282AB2100EB4616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ED3D5F42282AB2100EB4616 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0ED3D5F92282AB2400EB4616 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ED3D5FC2282AB2400EB4616 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0ED3D5FE2282AB2400EB4616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ED3D6032282AB2400EB4616 /* Latte1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Latte1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +99,7 @@
 		6FA210C6DF6BDF2A37A5D59B /* Pods-Latte1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1UITests.release.xcconfig"; path = "Target Support Files/Pods-Latte1UITests/Pods-Latte1UITests.release.xcconfig"; sourceTree = "<group>"; };
 		7381869CDF62D5204DADC344 /* Pods-Latte1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Latte1Tests.debug.xcconfig"; path = "Target Support Files/Pods-Latte1Tests/Pods-Latte1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF25C9EA229FDE3000340ACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AF5D887422BB3A4C007A0D01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFF275D12297E1AB00696394 /* Chats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
 		AFF275D32297E1B600696394 /* Album.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Album.storyboard; sourceTree = "<group>"; };
 		AFF275D52297E1BF00696394 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -184,6 +184,7 @@
 				0E08E2D422B2A23C000EADCB /* AuthDateViewController.swift */,
 				0E08E2D622B2A245000EADCB /* AViewController.swift */,
 				0E08E2E422B2A27A000EADCB /* DaysViewController.swift */,
+				AF5D887422BB3A4C007A0D01 /* Assets.xcassets */,
 				0E08E2E822B2A289000EADCB /* LoginViewController.swift */,
 				0E08E2EA22B2A290000EADCB /* MatchingViewController.swift */,
 				0E08E2DC22B2A255000EADCB /* ChatViewController.swift */,
@@ -195,7 +196,6 @@
 				0E08E2D222B2A234000EADCB /* TViewController.swift */,
 				0E08E2CE22B2A216000EADCB /* DViewController.swift */,
 				0E08E2EC22B2A9D0000EADCB /* GoogleService-Info.plist */,
-				0ED3D5F92282AB2400EB4616 /* Assets.xcassets */,
 				0E02A87A228474B100B26611 /* DataCenter.swift */,
 				0ED3D5FE2282AB2400EB4616 /* Info.plist */,
 				0ED3D5FB2282AB2400EB4616 /* LaunchScreen.storyboard */,
@@ -347,8 +347,8 @@
 				0ED3D5FD2282AB2400EB4616 /* LaunchScreen.storyboard in Resources */,
 				AF25C9EB229FDE3000340ACA /* Main.storyboard in Resources */,
 				AFF275D82297E1C600696394 /* Days.storyboard in Resources */,
-				0ED3D5FA2282AB2400EB4616 /* Assets.xcassets in Resources */,
 				AFF275D22297E1AB00696394 /* Chats.storyboard in Resources */,
+				AF5D887522BB3A4C007A0D01 /* Assets.xcassets in Resources */,
 				AFF275D42297E1B600696394 /* Album.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

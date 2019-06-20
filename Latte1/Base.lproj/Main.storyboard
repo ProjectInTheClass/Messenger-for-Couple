@@ -447,13 +447,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="~님이 맞나요?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0c-sw-dMw">
-                                <rect key="frame" x="73" y="310" width="268" height="139"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
-                                <color key="textColor" red="0.35719384520000003" green="0.29265427550000001" blue="0.1823081174" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jn-w1-5oB">
                                 <rect key="frame" x="164" y="607" width="87" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -474,6 +467,17 @@
                                     <action selector="logoutButton:" destination="G0x-CH-AA6" eventType="touchUpInside" id="wlR-A0-V6q"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PNG 이미지-87FC3BC51BA3-1" translatesAutoresizingMaskIntoConstraints="NO" id="RRR-zM-5Ak">
+                                <rect key="frame" x="87" y="192" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CONFIRM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0c-sw-dMw">
+                                <rect key="frame" x="73" y="361" width="268" height="174"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" red="0.35719384520000003" green="0.29265427550000001" blue="0.1823081174" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97597533459999997" green="0.89242357019999996" blue="0.7058463693" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="Nas-1Z-YgQ"/>
@@ -487,7 +491,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6MH-bw-vNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SqD-w0-S5J" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2023.2" y="-255.02248875562222"/>
+            <point key="canvasLocation" x="-2024.6376811594205" y="-255.13392857142856"/>
         </scene>
     </scenes>
     <resources>
@@ -495,6 +499,6 @@
         <image name="like" width="21.333333969116211" height="21.333333969116211"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qh1-RD-APU"/>
+        <segue reference="GlF-H3-KqC"/>
     </inferredMetricsTieBreakers>
 </document>
