@@ -11,11 +11,7 @@ import UIKit
 class ConfirmViewController: UIViewController {
     
     @IBOutlet weak var confirm: UILabel!
-    
-    @IBAction func backButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "confirmToauthdate", sender: self)
-    }
-    
+
     @IBAction func logoutButton(_ sender: UIButton) {
         UserDefaults.standard.removeObject(forKey: "saved email")
         UserDefaults.standard.removeObject(forKey: "saved password")

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Syx-NY-Zga">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Syx-NY-Zga">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,7 +47,7 @@
                                                     <rect key="frame" x="0.0" y="106" width="127" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2bg-LM-gyu">
@@ -110,7 +110,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hu8-RR-aLW"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Vtr-YM-nLr" userLabel="Album"/>
@@ -144,13 +144,13 @@
                                 <items>
                                     <navigationItem id="Y2I-BF-jIi">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Ean-KI-a50">
-                                            <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="0.87371891739999996" green="0.51246839759999996" blue="0.26657178999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
                                                 <action selector="dismissButtonTapped:" destination="WDJ-Qw-Kcb" id="Yby-Qk-mta"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Wi6-0N-AJp">
-                                            <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="0.87371891739999996" green="0.51246839759999996" blue="0.26657178999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
                                                 <action selector="pushDone:" destination="WDJ-Qw-Kcb" id="82O-8d-JAp"/>
                                             </connections>
@@ -162,6 +162,7 @@
                                 <rect key="frame" x="50" y="131" width="314" height="634"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.97597533459999997" green="0.89242357019999996" blue="0.7058463693" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Uuz-Ka-hen">
                                     <size key="itemSize" width="125" height="136"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -197,6 +198,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.97597533459999997" green="0.89242357019999996" blue="0.7058463693" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="Gmx-My-SOS"/>
                     </view>
                     <connections>
@@ -243,13 +245,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="eYq-tA-5tK"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ynw-O1-DTI">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="99x-uE-QkD">
-                            <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.87371891739999996" green="0.51246839759999996" blue="0.26657178999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="WDJ-Qw-Kcb" kind="presentation" identifier="DSegue" id="BXY-Rx-sVv"/>
                             </connections>
@@ -266,6 +268,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="like" width="21" height="21"/>
+        <image name="like" width="21.333333969116211" height="21.333333969116211"/>
     </resources>
 </document>

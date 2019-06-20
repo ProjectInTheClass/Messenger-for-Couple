@@ -24,11 +24,10 @@ class CalendarViewController: UIViewController {
     //var table : UITableView!
     var whatdate : String!
     var scheddata = [String]()
-    var datestr = "2019년03월22일"
+    var datestr = "2019-03-22"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // 달력 위치 설정.
         let calendar = FSCalendar(frame: CGRect(x:50,y:200,width:320,height:300))
         // Calendar에서 가져올 데이터 및 기능 대신 수행을 위해 사용
@@ -41,24 +40,19 @@ class CalendarViewController: UIViewController {
         //Calendar cell appearence.
         calendar.appearance.headerTitleColor = UIColor.brown
         calendar.appearance.todayColor = UIColor.lightGray
-
+        
         calendar.appearance.titleDefaultColor = UIColor.black
-
+        
         SchedTable.dataSource = self
         SchedTable.delegate = self
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
         dateFormatter.timeZone = TimeZone(abbreviation: "KST")
-        dateFormatter.dateFormat = "yyyy년MM월dd일"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         self.whatdate = dateFormatter.string(from: Date())
         
-        let startDate = dateFormatter.date(from: datestr)!
-        let endDate = dateFormatter.date(from:self.whatdate)!
-        let interval = endDate.timeIntervalSince(startDate)+1
-        let days = Int(interval / 86400)
         
-        self.showRealTerm.text = "실제로 사귄지 \(days)일!!"
         view.addSubview(calendar)
         //view.addSubview(table)
         
@@ -69,8 +63,19 @@ class CalendarViewController: UIViewController {
         
         // 데이터 베이스 참조 연결
         rootRef = Database.database().reference()
-        curruseruid = Auth.auth().currentUser?.uid
-        // 여기 위치가 맞을까???
+        curruseruid = Auth.auth().currentUser?.email?.replacingOccurrences(of: ".", with: "-")
+        
+        rootRef.child("user").child(curruseruid).child("loveday").observe(DataEventType.value) { (snapshot) in
+            if let data = snapshot.value {
+                if let data1 = data as? String{
+                    let startDate = dateFormatter.date(from: String(data1))!
+                    let endDate = dateFormatter.date(from:self.whatdate)!
+                    let interval = endDate.timeIntervalSince(startDate)+1
+                    let days = Int(interval / 86400)
+                    self.showRealTerm.text = "D+\(days+1)"
+                }
+            }
+        }
         
         // 예상 위치1
         
@@ -82,13 +87,21 @@ class CalendarViewController: UIViewController {
                 let input = rest.value as! String
                 self.scheddata.append(input)
             }
+            //print(self.scheddata.count)
             self.SchedTable.reloadData()
         }
+        //print(self.scheddata.count)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let calendarModal = segue.destination as? AddSchedViewController else {return}
-        calendarModal.datevalue = self.whatdate
+        if segue.identifier == "add"{
+            guard let calendarModal = segue.destination as? AddSchedViewController else {return}
+            calendarModal.datevalue = self.whatdate
+        }
+        else if segue.identifier == "delete"{
+            guard let calendarModal2 = segue.destination as? RemoveSchedViewController else {return}
+            calendarModal2.datevalue = self.whatdate
+        }
     }
     
 }
@@ -104,12 +117,27 @@ extension CalendarViewController : FSCalendarDataSource, FSCalendarDelegate{
         // 그 후 올바른 설정인지 확인 후 아래의 테이블 뷰에 데이터 삽입.
         let whatdate = dateFormatter.string(from:date)
         self.whatdate = whatdate
-        let startDate = dateFormatter.date(from: datestr)!
-        let endDate = dateFormatter.date(from:self.whatdate)!
-        let interval = endDate.timeIntervalSince(startDate)+1
-        let days = Int(interval / 86400)
-        
-        self.showRealTerm.text = "실제로 사귄지 \(days)일!!"
+        rootRef.child("user").child(curruseruid).child("loveday").observe(DataEventType.value) { (snapshot) in
+            if let data = snapshot.value {
+                if let data1 = data as? String{
+                    let startDate = self.dateFormatter.date(from: String(data1))!
+                    let endDate = self.dateFormatter.date(from:self.whatdate)!
+                    let interval = endDate.timeIntervalSince(startDate)+1
+                    let days = Int(interval / 86400)
+                    
+                    //사귄날짜가 days == 0
+                    if days < 0 {
+                        self.showRealTerm.text = "D\(days-1)"
+                        print(days)
+                    }
+                    else {
+                        self.showRealTerm.text = "D+\(days+1)"
+                        print(days)
+                    }
+                }
+            }
+        }
+
         //print("이날은 실.제.로 사귄지 \(days)일 되는날!")
         self.SchedTable.reloadData()
         //print("Date is "+whatdate )

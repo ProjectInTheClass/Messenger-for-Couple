@@ -140,7 +140,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func viewDidAppear(_ animated: Bool) {
         
-        for i in 0..<albums.count-1 {
+        for i in 0..<albums.count {
             for j in i+1..<albums.count {
                 print(albums[i].year, albums[j].year)
                 if albums[i].year < albums[j].year {

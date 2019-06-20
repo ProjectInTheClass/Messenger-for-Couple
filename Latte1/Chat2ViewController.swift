@@ -186,6 +186,9 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
      }
      */
     @IBAction func sendButton(_ sender: Any) {
+        chatTextField.text = chatTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if chatTextField.text != "" {
         let ref = FirebaseDataService.instance.messageRef.childByAutoId()
         guard let fromUserId = FirebaseDataService.instance.currentUserEmail?.replacingOccurrences(of: ".", with: "-") else {
             return
@@ -209,6 +212,8 @@ class Chat2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 
             }
+            }
+            
         }
         //self.fetchMessages()
     }

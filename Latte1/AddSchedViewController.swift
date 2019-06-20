@@ -25,8 +25,9 @@ class AddSchedViewController: UIViewController {
         DateLabel.text = datevalue
         
         rootRef = Database.database().reference()
-        curruseruid = Auth.auth().currentUser?.uid
+        curruseruid = Auth.auth().currentUser?.email?.replacingOccurrences(of: ".", with: "-")
         // Do any additional setup after loading the view.
+        
     }
     
     
@@ -48,7 +49,12 @@ class AddSchedViewController: UIViewController {
             
             // 데이터베이스에 잘 추가되는지 확인해보기 -> 날짜 및 uid 별로 잘 추가된다.
             rootRef.child("schedule").child(datevalue).child(curruseruid).childByAutoId().setValue(schedstring)
-            
+            rootRef.child("user").child(curruseruid).child("groups").child("email").observeSingleEvent(of: .value) { (snapshot) in
+                if let data = snapshot.value {
+                    let matchid = data as? String
+                    self.rootRef.child("schedule").child(self.datevalue).child("\(String(describing: matchid!))").childByAutoId().setValue(self.schedstring)
+                }
+            }
         }
         // 이전 화면으로 되돌아 가기.
         dismiss(animated: true, completion: nil)
